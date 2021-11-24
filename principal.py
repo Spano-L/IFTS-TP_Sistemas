@@ -1,22 +1,26 @@
 import sqlite3 as sql
 from funciones import *
 
-def menuDevuelveCodigo():  
+menu = {
+"///  Menú - Seleccione una opcion:  ///"
+            "1.-Alta"
+            "2.-Modificacion"
+            "3.-Baja"
+            "4.-Busqueda"
+            "5.-Salir"
+}
 
-    print("///  Menú - Seleccione una opcion  ///")
-    print("1.-Alta")
-    print("2.-Modificacion")
-    print("3.-Baja")
-    print("4.-Busqueda")
-    print("5.-Salir")
+def menuDevuelveCodigo():  
+  
+    print(menu)
     seleccion=input("Ingrese una opcion:")
 
     if seleccion==str(1):
-        nombre = input("Ingrese su nombre:")
-        follower = int(input("Ingrese followers:"))
-        subs = int(input("Ingreseasdsadas: "))
-        insertRow(nombre,follower,subs)
-        readRows()
+        campo1 = input("Ingrese campo 1:")
+        campo2 = int(input("Ingrese campo 2:"))
+        campo3 = int(input("Ingrese campo 3: "))
+        insertarFila(campo1, campo2, campo3)
+        leerFilas()()
         #Funcion 1
     elif seleccion==str(2):
         editar = print("Edit")
@@ -30,15 +34,15 @@ def menuDevuelveCodigo():
     else:
         if seleccion != 1 or seleccion != 2 or seleccion != 3 or seleccion != 4:
             while True:
-                print("///  Menú - Seleccione una opcion  ///")
-                print("1.-Nuevo")
-                print("2.-Editar")
-                print("3.-Borrar")
-                print("4.-Salir")
-                seleccion=str(input("Opcion invalida. Ingrese nuevamente:"))
+                seleccion=input("Opcion invalida. Ingrese nuevamente:")
+                print(menu)
                 if seleccion==str(1):
-                    nuevo = print("New")
-                    return nuevo
+                    campo1 = input("Ingrese campo 1:")
+                    campo2 = int(input("Ingrese campo 2:"))
+                    campo3 = int(input("Ingrese campo 3: "))
+                    insertarFila(campo1, campo2, campo3)
+                    leerFilas()()
+                    #Funcion 1
                 elif seleccion==str(2):
                     editar = print("Edit")
                     return editar
@@ -47,6 +51,6 @@ def menuDevuelveCodigo():
                     return borrar
                 elif seleccion==str(4):
                     salir = print("Exit")
-                    return salir
+                return salir
                     
 menuDevuelveCodigo()

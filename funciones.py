@@ -1,13 +1,13 @@
 import sqlite3 as sql
 
-def createDB():
-    conn = sql.connect("streamers.db")
-    conn.commit()
-    conn.close()
+def crearDB():
+    conexion = sql.conexionect("streamers.db")
+    conexion.commit()
+    conexion.close()
 
-def createTable():
-    conn = sql.connect("streamers.db")
-    cursor = conn.cursor()
+def crearTabla():
+    conexion = sql.conexionect("streamers.db")
+    cursor = conexion.cursor()
     cursor.execute(
         """CREATE TABLE streamers(
             name text,
@@ -15,75 +15,75 @@ def createTable():
             subs integer
         )"""
     )
-    conn.commit()
-    conn.close()
+    conexion.commit()
+    conexion.close()
 
-def insertRow(nombre, followers, subs):
-    conn = sql.connect("streamers.db")
-    cursor = conn.cursor()
+def insertarFila(nombre, followers, subs):
+    conexion = sql.conexionect("streamers.db")
+    cursor = conexion.cursor()
     instruccion = f"INSERT INTO streamers values ('{nombre}',{followers},{subs})"
     cursor.execute(instruccion)
-    conn.commit()
-    conn.close()
+    conexion.commit()
+    conexion.close()
     #Modificacion
     print("Datos cargados exitosamente.",nombre,followers,subs)
 
-def readRows():
-    conn = sql.connect("streamers.db")
-    cursor = conn.cursor()
+def leerFilas():
+    conexion = sql.conexionect("streamers.db")
+    cursor = conexion.cursor()
     instruccion = f"SELECT * from streamers"
     cursor.execute(instruccion)
     datos = cursor.fetchall()
-    conn.commit()
-    conn.close()
+    conexion.commit()
+    conexion.close()
     print(datos)
 
-def insertRows(streamersList):
-    conn = sql.connect("streamers.db")
-    cursor = conn.cursor()
+def insertarFilas(streamersList):
+    conexion = sql.conexionect("streamers.db")
+    cursor = conexion.cursor()
     instruccion = f"INSERT INTO streamers values (?,?,?)"
     cursor.executemany(instruccion, streamersList)
-    conn.commit()
-    conn.close()
+    conexion.commit()
+    conexion.close()
 
-def readOrdered(field):
-    conn = sql.connect("streamers.db")
-    cursor = conn.cursor()
+def leerOrdenadoPor(field):
+    conexion = sql.conexionect("streamers.db")
+    cursor = conexion.cursor()
     instruccion = f"SELECT * from streamers ORDER BY {field} DESC"
     cursor.execute(instruccion)
     datos = cursor.fetchall()
-    conn.commit()
-    conn.close()
+    conexion.commit()
+    conexion.close()
     print(datos)
 
-def search():
-    conn = sql.connect("streamers.db")
-    cursor = conn.cursor()
+def buscar():
+    conexion = sql.conexionect("streamers.db")
+    cursor = conexion.cursor()
     instruccion = f"SELECT * from streamers WHERE subs < 21000"
     cursor.execute(instruccion)
     datos = cursor.fetchall()
-    conn.commit()
-    conn.close()
+    conexion.commit()
+    conexion.close()
     print(datos)
 
-def updateFields():
-    conn = sql.connect("streamers.db")
-    cursor = conn.cursor()
+def actualizarCampos():
+    conexion = sql.conexionect("streamers.db")
+    cursor = conexion.cursor()
     instruccion = f"UPDATE streamers SET followers=1200 where name like 'elxo%'"
     cursor.execute(instruccion)
-    conn.commit()
-    conn.close()
+    conexion.commit()
+    conexion.close()
 
-def deleteRow():
-    conn = sql.connect("streamers.db")
-    cursor = conn.cursor()
+def borrarFila():
+    conexion = sql.conexionect("streamers.db")
+    cursor = conexion.cursor()
     instruccion = f"DELETE  FROM streamers WHERE name='Ibai'"
     cursor.execute (instruccion)
-    conn.commit()
-    conn.close()
+    conexion.commit()
+    conexion.close()
 
 
-if __name__ == "__main__":
+if __nombre__ == "__main__":
     #createDB()
     #createTable()
     #insertRow("Ibai",700000,24000)
