@@ -1,55 +1,55 @@
 import sqlite3 as sql
 
 def crearDB():
-    conexion = sql.conexionect("streamers.db")
+    conexion = sql.connect("nombreBBDD.db")
     conexion.commit()
     conexion.close()
 
 def crearTabla():
-    conexion = sql.conexionect("streamers.db")
+    conexion = sql.connect("nombreBBDD.db")
     cursor = conexion.cursor()
     cursor.execute(
-        """CREATE TABLE streamers(
-            name text,
-            followers integer,
-            subs integer
+        """CREATE TABLE nombre_tabla(
+            nombre_columna1 text,
+            nombre_columna2 integer,
+            nombre_columna3 integer
         )"""
     )
     conexion.commit()
     conexion.close()
 
-def insertarFila(nombre, followers, subs):
-    conexion = sql.conexionect("streamers.db")
+def insertarFila(campo1, campo2, campo3):
+    conexion = sql.connect("nombreBBDD.db")
     cursor = conexion.cursor()
-    instruccion = f"INSERT INTO streamers values ('{nombre}',{followers},{subs})"
+    instruccion = f"INSERT INTO nombre_tabla VALUES ('{nombre_columna1}',{nombre_columna2},{nombre_columna3})"
     cursor.execute(instruccion)
     conexion.commit()
     conexion.close()
     #Modificacion
-    print("Datos cargados exitosamente.",nombre,followers,subs)
+    print("Datos cargados exitosamente.",campo1, campo2, campo3)
 
 def leerFilas():
-    conexion = sql.conexionect("streamers.db")
+    conexion = sql.connect("nombreBBDD.db")
     cursor = conexion.cursor()
-    instruccion = f"SELECT * from streamers"
+    instruccion = f"SELECT * FROM nombre_tabla"
     cursor.execute(instruccion)
     datos = cursor.fetchall()
     conexion.commit()
     conexion.close()
     print(datos)
 
-def insertarFilas(streamersList):
-    conexion = sql.conexionect("streamers.db")
+def insertarFilas(nombre_lista):
+    conexion = sql.connect("nombreBBDD.db")
     cursor = conexion.cursor()
-    instruccion = f"INSERT INTO streamers values (?,?,?)"
-    cursor.executemany(instruccion, streamersList)
+    instruccion = f"INSERT INTO nombre_tabla VALUES (?,?,?)"
+    cursor.executemany(instruccion, nombre_lista)
     conexion.commit()
     conexion.close()
 
-def leerOrdenadoPor(field):
-    conexion = sql.conexionect("streamers.db")
+def leerOrdenadoPor(nombre_columna):
+    conexion = sql.connect("nombreBBDD.db")
     cursor = conexion.cursor()
-    instruccion = f"SELECT * from streamers ORDER BY {field} DESC"
+    instruccion = f"SELECT * FROM nombre_tabla ORDER BY {nombre_columna} DESC"
     cursor.execute(instruccion)
     datos = cursor.fetchall()
     conexion.commit()
@@ -57,9 +57,9 @@ def leerOrdenadoPor(field):
     print(datos)
 
 def buscar():
-    conexion = sql.conexionect("streamers.db")
+    conexion = sql.connect("nombreBBDD.db")
     cursor = conexion.cursor()
-    instruccion = f"SELECT * from streamers WHERE subs < 21000"
+    instruccion = f"SELECT * FROM nombre_tabla WHERE campo3 < 21000"
     cursor.execute(instruccion)
     datos = cursor.fetchall()
     conexion.commit()
@@ -67,35 +67,35 @@ def buscar():
     print(datos)
 
 def actualizarCampos():
-    conexion = sql.conexionect("streamers.db")
+    conexion = sql.connect("nombreBBDD.db")
     cursor = conexion.cursor()
-    instruccion = f"UPDATE streamers SET followers=1200 where name like 'elxo%'"
+    instruccion = f"UPDATE nombre_tabla SET campo2=1200 WHERE columna1 LIKE 'elxo%'"
     cursor.execute(instruccion)
     conexion.commit()
     conexion.close()
 
 def borrarFila():
-    conexion = sql.conexionect("streamers.db")
+    conexion = sql.connect("nombreBBDD.db")
     cursor = conexion.cursor()
-    instruccion = f"DELETE  FROM streamers WHERE name='Ibai'"
+    instruccion = f"DELETE  FROM nombre_tabla WHERE campo1='Ibai'"
     cursor.execute (instruccion)
     conexion.commit()
     conexion.close()
 
 
 if __nombre__ == "__main__":
-    #createDB()
-    #createTable()
-    #insertRow("Ibai",700000,24000)
-    #insertRow("Emiliano",800000,10000)
-    #readRows()
-    streamers = [
+    #crearDB()
+    #crearTabla()
+    #insertarFila("Ibai",700000,24000)
+    #insertFila("Emiliano",800000,10000)
+    #leerFilas()
+    lista = [
         ("ElXokas", 1000000, 50000),
         ("Crisada",2000000,21000),
         ("Aurplay",800000,20000)
     ]
-    #insertRows(streamers)
-    #readOrdered("subs")
-    #search()
-    #updateFields()
-    #deleteRow()
+    #insertarFilas(nombre_tabla)
+    #leerOrdenadoPor("nombre_columna3")
+    #buscar()
+    #actualizarCampos()
+    #borrarFila()
