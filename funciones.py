@@ -1,22 +1,28 @@
 import sqlite3 as sql
 
-def crearDB():
-    conexion = sql.connect("sistema.sqlite")
-    conexion.commit()
-    conexion.close()
+# Menu
 
-def crearTabla():
-    conexion = sql.connect("sistema.sqlite")
-    cursor = conexion.cursor()
-    cursor.execute(
-        """CREATE TABLE nombre_tabla(
-            nombre_columna1 text,
-            nombre_columna2 integer,
-            nombre_columna3 integer
-        )"""
-    )
-    conexion.commit()
-    conexion.close()
+def menu():
+    menuPrincipal = """///  Menú - Seleccione una opcion:  ///
+            \n1.-Alta
+            \n2.-Modificacion
+            \n3.-Baja
+            \n4.-Busqueda
+            \n5.-Salir\n"""
+    print(menuPrincipal)
+
+def menuAltas():
+    submenuAltas = """///  Seleccione tipo de alta  ///
+        \n[1] - Categoria
+        \n[2] - Clientes
+        \n[3] - Facturas
+        \n[4] - Logistica
+        \n[5] - Productos
+        \n[6] - Proveedores
+        \n[7] - Venta_items
+        \n"""
+    print(submenuAltas)
+
 
 def insertarFila(campo1, campo2, campo3):
     conexion = sql.connect("sistema.sqlite")
