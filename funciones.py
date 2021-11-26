@@ -1,4 +1,8 @@
 import sqlite3 as sql
+import os
+
+def borrarPantalla():
+    os.system("cls")
 
 def menu():
     menuPrincipal = """///  Menú - Seleccione una acción  ///

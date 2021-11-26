@@ -5,6 +5,7 @@ def menuDevuelveCodigo():
     menu()
     seleccion=input("Ingrese una opcion: ")
     print("\n")
+    borrarPantalla()
 
     if seleccion==str(1):
         print("SELECCIONE TIPO DE ALTA")
