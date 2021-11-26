@@ -3,33 +3,18 @@ from funciones import *
 
 def menuDevuelveCodigo():  
     menu()
-    seleccion=input("Ingrese una opcion:")
+    seleccion=input("Ingrese una opcion: ")
+    print("\n")
 
     if seleccion==str(1):
-        menuAltas()
-        seleccionSubmenu = input("Seleccione el tipo de alta: ")
-        if seleccionSubmenu ==str(1):
-            print("Seleccion 1 - Categoria")
-        elif seleccionSubmenu ==str(2):
-            print("Seleccion 2 - Clientes")
-        elif seleccionSubmenu ==str(3):
-            print("Seleccion 3 - Facturas")
-        elif seleccionSubmenu ==str(4):
-            print("Seleccion 4 - Logistica")
-        elif seleccionSubmenu ==str(5):
-            print("Seleccion 5 - Productos")
-        elif seleccionSubmenu ==str(6):
-            print("Seleccion 6 - Proveedores")
-        elif seleccionSubmenu ==str(7):
-            print("Seleccion 7 - Venta_items")
-
-        #Funcion 1
+        print("SELECCIONE TIPO DE ALTA")
+        submenuTablas()
     elif seleccion==str(2):
-        editar = print("Edit")
-        return editar
+        print("SELECCIONE TIPO DE MODIFICACION")
+        submenuTablas()
     elif seleccion==str(3):
-        borrar = print("Delete")
-        return borrar
+        print("SELECCIONE TIPO DE BAJA")
+        submenuTablas()
     elif seleccion==str(4):
         print("Seleccion 4.")
         leerFilas123()

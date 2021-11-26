@@ -1,9 +1,7 @@
 import sqlite3 as sql
 
-# Menu
-
 def menu():
-    menuPrincipal = """///  Menú - Seleccione una opcion:  ///
+    menuPrincipal = """///  Menú - Seleccione una acción  ///
             \n1.-Alta
             \n2.-Modificacion
             \n3.-Baja
@@ -11,8 +9,8 @@ def menu():
             \n5.-Salir\n"""
     print(menuPrincipal)
 
-def menuAltas():
-    submenuAltas = """///  Seleccione tipo de alta  ///
+def submenuTablas():
+    submenu = """
         \n[1] - Categoria
         \n[2] - Clientes
         \n[3] - Facturas
@@ -21,7 +19,24 @@ def menuAltas():
         \n[6] - Proveedores
         \n[7] - Venta_items
         \n"""
-    print(submenuAltas)
+    print(submenu)
+    seleccionSubmenu = input("Seleccione una tabla: ")
+    if seleccionSubmenu ==str(1):
+        print("Seleccion 1 - Categoria")
+    elif seleccionSubmenu ==str(2):
+        print("Seleccion 2 - Clientes")
+    elif seleccionSubmenu ==str(3):
+        print("Seleccion 3 - Facturas")
+    elif seleccionSubmenu ==str(4):
+        print("Seleccion 4 - Logistica")
+    elif seleccionSubmenu ==str(5):
+        print("Seleccion 5 - Productos")
+    elif seleccionSubmenu ==str(6):
+        print("Seleccion 6 - Proveedores")
+    elif seleccionSubmenu ==str(7):
+        print("Seleccion 7 - Venta_items")
+
+#def menuModificacion()
 
 
 def insertarFila(campo1, campo2, campo3):
