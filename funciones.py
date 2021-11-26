@@ -83,7 +83,7 @@ def borrarFila():
     conexion.close()
 
 
-if __nombre__ == "__main__":
+if __name__ == "__main__":
     #crearDB()
     #crearTabla()
     #insertarFila("Ibai",700000,24000)
