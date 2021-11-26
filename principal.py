@@ -1,14 +1,12 @@
 import sqlite3 as sql
 from funciones import *
 
-menu = {
-"///  Menú - Seleccione una opcion:  ///"
-            "1.-Alta"
-            "2.-Modificacion"
-            "3.-Baja"
-            "4.-Busqueda"
-            "5.-Salir"
-}
+menu = """///  Menú - Seleccione una opcion:  ///
+            \n1.-Alta
+            \n2.-Modificacion
+            \n3.-Baja
+            \n4.-Busqueda
+            \n5.-Salir\n"""
 
 def menuDevuelveCodigo():  
   
@@ -29,8 +27,11 @@ def menuDevuelveCodigo():
         borrar = print("Delete")
         return borrar
     elif seleccion==str(4):
-        salir = print("Exit")
-        return salir
+        print("Seleccion 4.")
+        leerFilas123()
+        #print("/////////////////////////////////////")
+        #leerFilas()
+        input()
     else:
         if seleccion != 1 or seleccion != 2 or seleccion != 3 or seleccion != 4:
             while True:
@@ -50,7 +51,7 @@ def menuDevuelveCodigo():
                     borrar = print("Delete")
                     return borrar
                 elif seleccion==str(4):
-                    salir = print("Exit")
-                return salir
+                    leerFilas123()
+                    input()
                     
 menuDevuelveCodigo()

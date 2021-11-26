@@ -41,6 +41,19 @@ def leerFilas():
     conexion.close()
     print(datos)
 
+#prueba
+def leerFilas123():
+    conexion = sql.connect("sistema.sqlite")
+    cursor = conexion.cursor()
+    nombreTabla = input("Ingrese el nombre de la tabla:")
+    instruccion = f"SELECT * FROM {nombreTabla}"
+    for row in cursor.execute(instruccion):
+        print(row)
+    #datos = cursor.fetchall()
+    conexion.commit()
+    conexion.close()
+    #print(datos)
+
 def insertarFilas(nombre_lista):
     conexion = sql.connect("sistema.sqlite")
     cursor = conexion.cursor()
