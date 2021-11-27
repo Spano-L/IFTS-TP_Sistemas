@@ -26,8 +26,23 @@ def menuDevuelveCodigo():
             enConstruccion()
 #### MODIFICACION ####
     elif seleccion==str(2):
+        borrarPantalla()
         print("SELECCIONE TIPO DE MODIFICACION")
-        submenuTablas()
+        seleccionSub = submenuTablas()
+        if seleccionSub == "uno": #Categorias
+            enConstruccion()
+        elif seleccionSub == "dos": #Clientes
+            enConstruccion()
+        elif seleccionSub == "tres": #Facturas
+            enConstruccion()
+        elif seleccionSub == "cuatro": #Logistica
+            enConstruccion()
+        elif seleccionSub == "cinco": #Productos
+            enConstruccion()
+        elif seleccionSub == "seis": #Proveedores
+            enConstruccion()
+        elif seleccionSub == "siete": #Venta_items
+            enConstruccion()
 ### BAJA ####
     elif seleccion==str(3):
         print("SELECCIONE TIPO DE BAJA")
