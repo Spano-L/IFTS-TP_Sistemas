@@ -160,7 +160,7 @@ if __name__ == "__main__":
 
 # Probando funciones
 
-def confirmarOperacion():
+def confirmarAlta():
     print("Los datos fueron cargados exitosamente.\n")
 
 def enConstruccion():
@@ -175,7 +175,7 @@ def insertarEntidadCategoria():
     cursor.execute(instruccion)
     conexion.commit()
     conexion.close()
-    confirmarOperacion()
+    confirmarAlta()
 
 def insertarEntidadCliente():
     conexion = sql.connect("sistema.sqlite")
@@ -190,15 +190,7 @@ def insertarEntidadCliente():
     cursor.execute(instruccion)
     conexion.commit()
     conexion.close()
-    confirmarOperacion()
-
-def insertarFactura():
-    conexion = sql.connect("sistema.sqlite")
-    cursor = conexion.cursor()
-    instruccion = f"INSERT INTO facturas (categoria_nombre,categoria_info) VALUES ('{categoria_nombre}','{categoria_info}')"
-    cursor.execute(instruccion)
-    conexion.commit()
-    conexion.close()
+    confirmarAlta()
 
 def insertarProducto():
     conexion = sql.connect("sistema.sqlite")
@@ -211,3 +203,19 @@ def insertarProducto():
     cursor.execute(instruccion)
     conexion.commit()
     conexion.close()
+    confirmarAlta()
+
+def insertarProveedor():
+    conexion = sql.connect("sistema.sqlite")
+    cursor = conexion.cursor()
+    proveedor_nombre = input("Ingrese nombre del proveedor: ")
+    proveedor_direccion = input("Ingrese direccion del proveedor: ")
+    proveedor_ciudad = input("Ingrese ciudad del proveedor: ")
+    proveedor_email = input("Ingrese el mail del proveedor: ")
+    proveedor_telefono = input("Ingrese telefono del proveedor: ")
+    instruccion = f"INSERT INTO proveedores (proveedor_nombre,proveedor_direccion,proveedor_ciudad,proveedor_email,proveedor_telefono) VALUES ('{proveedor_nombre}','{proveedor_direccion}','{proveedor_ciudad}','{proveedor_email}','{proveedor_telefono}')"
+    cursor.execute(instruccion)
+    conexion.commit()
+    conexion.close()
+    confirmarAlta()
+

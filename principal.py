@@ -21,7 +21,7 @@ def menuDevuelveCodigo():
         elif seleccionSub == "cinco":
             insertarProducto()
         elif seleccionSub == "seis":
-            enConstruccion()
+            insertarProveedor()
         elif seleccionSub == "siete":
             enConstruccion()
 #### MODIFICACION ####
