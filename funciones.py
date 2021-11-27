@@ -1,5 +1,6 @@
 import sqlite3 as sql
 import os
+import sys
 
 def borrarPantalla():
     os.system("cls")
@@ -25,32 +26,33 @@ def submenuTablas():
         \n"""
     print(submenu)
     seleccionSubmenu = input("Seleccione una tabla: ")
+    borrarPantalla()
     if seleccionSubmenu ==str(1):
-        print("Seleccion 1 - Categoria")
-        seleccionSubmenu = "uno"
-        return seleccionSubmenu
+        print("Seleccion 1 - Categoria\n")
+        seleccionSub = "uno"
+        return seleccionSub
     elif seleccionSubmenu ==str(2):
-        print("Seleccion 2 - Clientes")
-        seleccionSubmenu = "dos"
-        return seleccionSubmenu
+        print("Seleccion 2 - Clientes\n")
+        seleccionSub = "dos"
+        return seleccionSub
     elif seleccionSubmenu ==str(3):
-        print("Seleccion 3 - Facturas")
+        print("Seleccion 3 - Facturas\n")
         seleccionSubmenu = "tres"
         return seleccionSubmenu
     elif seleccionSubmenu ==str(4):
-        print("Seleccion 4 - Logistica")
+        print("Seleccion 4 - Logistica\n")
         seleccionSubmenu = "cuatro"
         return seleccionSubmenu
     elif seleccionSubmenu ==str(5):
-        print("Seleccion 5 - Productos")
+        print("Seleccion 5 - Productos\n")
         seleccionSubmenu = "cinco"
         return seleccionSubmenu
     elif seleccionSubmenu ==str(6):
-        print("Seleccion 6 - Proveedores")
+        print("Seleccion 6 - Proveedores\n")
         seleccionSubmenu = "seis"
         return seleccionSubmenu
     elif seleccionSubmenu ==str(7):
-        print("Seleccion 7 - Venta_items")
+        print("Seleccion 7 - Venta_items\n")
         seleccionSubmenu = "siete"
         return seleccionSubmenu
 
@@ -158,6 +160,12 @@ if __name__ == "__main__":
 
 # Probando funciones
 
+def confirmarOperacion():
+    print("Los datos fueron cargados exitosamente.\n")
+
+def enConstruccion():
+    print("Esta seccion del programa se encuentra en construccion.\n")
+
 def insertarEntidadCategoria():
     conexion = sql.connect("sistema.sqlite")
     cursor = conexion.cursor()
@@ -167,5 +175,27 @@ def insertarEntidadCategoria():
     cursor.execute(instruccion)
     conexion.commit()
     conexion.close()
-    #Modificacion
-    print("Los siguientes datos fueron cargados: Cat.Nombre -",categoria_nombre,"- Cat-Info",categoria_info)
+    confirmarOperacion()
+
+def insertarEntidadCliente():
+    conexion = sql.connect("sistema.sqlite")
+    cursor = conexion.cursor()
+    cliente_nombre = input("Ingrese nombre de cliente: ")
+    cliente_zona = input("Ingrese zona de cliente: ")
+    cliente_direccion = input("Ingrese direccion de cliente: ")
+    cliente_telefono = input("Ingrese telefono de cliente: ")
+    cliente_email = input("Ingrese email de cliente:")
+    cliente_mayorista = int(input("Ingrese 1 si el cliente es mayorista. Ó ingrese 0 si es minorista."))
+    instruccion = f"INSERT INTO clientes (cliente_nombre,cliente_zona,cliente_direccion,cliente_telefono,cliente_email,cliente_mayorista) VALUES ('{cliente_nombre}','{cliente_zona}','{cliente_direccion}','{cliente_telefono}','{cliente_email}','{cliente_mayorista}')"
+    cursor.execute(instruccion)
+    conexion.commit()
+    conexion.close()
+    confirmarOperacion()
+
+def insertarFactura():
+    conexion = sql.connect("sistema.sqlite")
+    cursor = conexion.cursor()
+    instruccion = f"INSERT INTO facturas (categoria_nombre,categoria_info) VALUES ('{categoria_nombre}','{categoria_info}')"
+    cursor.execute(instruccion)
+    conexion.commit()
+    conexion.close()
