@@ -219,3 +219,21 @@ def insertarProveedor():
     conexion.close()
     confirmarAlta()
 
+def modificarCategoria():
+    conexion = sql.connect("sistema.sqlite")
+    cursor = conexion.cursor()
+    flag = str(input("Ingrese (1) para cambiar el nombre de la categoria\nIngrese (2) para cambiar la informacion de la categoria: "))
+    if flag == str(1):
+        valor = input("Ingrese nuevo nombre: ")
+        campo = "categoria_nombre"
+    elif flag == str(2):
+        valor = input("Ingrese nueva informacion: ")
+        campo = "categoria_info" 
+    campoId = int(input("Ingrese el ID de la categoria a modificar: "))
+    
+    instruccion = f"UPDATE categorias SET '{campo}'='{valor}' WHERE categoria_id='{campoId}'"
+    cursor.execute(instruccion)
+    conexion.commit()
+    conexion.close()
+
+

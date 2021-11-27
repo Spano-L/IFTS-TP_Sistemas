@@ -30,7 +30,7 @@ def menuDevuelveCodigo():
         print("SELECCIONE TIPO DE MODIFICACION")
         seleccionSub = submenuTablas()
         if seleccionSub == "uno": #Categorias
-            enConstruccion()
+            modificarCategoria()
         elif seleccionSub == "dos": #Clientes
             enConstruccion()
         elif seleccionSub == "tres": #Facturas
