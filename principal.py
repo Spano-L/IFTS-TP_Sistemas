@@ -4,12 +4,18 @@ from funciones import *
 def menuDevuelveCodigo():  
     menu()
     seleccion=input("Ingrese una opcion: ")
-    print("\n")
     borrarPantalla()
 
     if seleccion==str(1):
         print("SELECCIONE TIPO DE ALTA")
-        submenuTablas()
+        if submenuTablas() == "uno":
+            insertarEntidadCategoria()
+
+
+
+
+
+
     elif seleccion==str(2):
         print("SELECCIONE TIPO DE MODIFICACION")
         submenuTablas()

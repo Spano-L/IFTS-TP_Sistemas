@@ -5,12 +5,12 @@ def borrarPantalla():
     os.system("cls")
 
 def menu():
-    menuPrincipal = """///  Menú - Seleccione una acción  ///
-            \n1.-Alta
-            \n2.-Modificacion
-            \n3.-Baja
-            \n4.-Busqueda
-            \n5.-Salir\n"""
+    menuPrincipal = """///  Menú principal - Seleccione una acción  ///
+            \n[1] - Alta
+            \n[2] - Modificacion
+            \n[3] - Baja
+            \n[4] - Busqueda
+            \n[5] - Salir\n"""
     print(menuPrincipal)
 
 def submenuTablas():
@@ -27,20 +27,32 @@ def submenuTablas():
     seleccionSubmenu = input("Seleccione una tabla: ")
     if seleccionSubmenu ==str(1):
         print("Seleccion 1 - Categoria")
+        seleccionSubmenu = "uno"
+        return seleccionSubmenu
     elif seleccionSubmenu ==str(2):
         print("Seleccion 2 - Clientes")
+        seleccionSubmenu = "dos"
+        return seleccionSubmenu
     elif seleccionSubmenu ==str(3):
         print("Seleccion 3 - Facturas")
+        seleccionSubmenu = "tres"
+        return seleccionSubmenu
     elif seleccionSubmenu ==str(4):
         print("Seleccion 4 - Logistica")
+        seleccionSubmenu = "cuatro"
+        return seleccionSubmenu
     elif seleccionSubmenu ==str(5):
         print("Seleccion 5 - Productos")
+        seleccionSubmenu = "cinco"
+        return seleccionSubmenu
     elif seleccionSubmenu ==str(6):
         print("Seleccion 6 - Proveedores")
+        seleccionSubmenu = "seis"
+        return seleccionSubmenu
     elif seleccionSubmenu ==str(7):
         print("Seleccion 7 - Venta_items")
-
-#def menuModificacion()
+        seleccionSubmenu = "siete"
+        return seleccionSubmenu
 
 
 def insertarFila(campo1, campo2, campo3):
@@ -142,3 +154,18 @@ if __name__ == "__main__":
     #buscar()
     #actualizarCampos()
     #borrarFila()
+
+
+# Probando funciones
+
+def insertarEntidadCategoria():
+    conexion = sql.connect("sistema.sqlite")
+    cursor = conexion.cursor()
+    categoria_nombre = input("Ingrese nombre de categoria: ")
+    categoria_info = input("Ingrese informacion de la categoria: ")
+    instruccion = f"INSERT INTO categorias (categoria_nombre,categoria_info) VALUES ('{categoria_nombre}','{categoria_info}')"
+    cursor.execute(instruccion)
+    conexion.commit()
+    conexion.close()
+    #Modificacion
+    print("Los siguientes datos fueron cargados: Cat.Nombre -",categoria_nombre,"- Cat-Info",categoria_info)
