@@ -1,7 +1,7 @@
 import sqlite3 as sql
 from funciones import *
 
-def menuDevuelveCodigo():  
+def menuDevuelveCodigo(): 
     menu()
     seleccion=str(input("Ingrese una opcion: "))
     borrarPantalla()
@@ -19,7 +19,7 @@ def menuDevuelveCodigo():
         elif seleccionSub == "cuatro":
             enConstruccion()
         elif seleccionSub == "cinco":
-            enConstruccion()
+            insertarProducto()
         elif seleccionSub == "seis":
             enConstruccion()
         elif seleccionSub == "siete":
@@ -34,18 +34,13 @@ def menuDevuelveCodigo():
         submenuTablas()
 ### BUSQUEDA ###
     elif seleccion==str(4):
-        print("Seleccion 4.")
-        leerFilas123()
-        #print("/////////////////////////////////////")
-        #leerFilas()
-        input()
+       enConstruccion()
 ### SALIR ###
     elif seleccion==str(5):
         sys.exit()
 
 
-        
-   """" else:
+""" else:
         if seleccion != 1 or seleccion != 2 or seleccion != 3 or seleccion != 4 or seleccion != 5:
             while True:
                 seleccion=input("Opcion invalida. Ingrese nuevamente:")

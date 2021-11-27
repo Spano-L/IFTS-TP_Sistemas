@@ -199,3 +199,15 @@ def insertarFactura():
     cursor.execute(instruccion)
     conexion.commit()
     conexion.close()
+
+def insertarProducto():
+    conexion = sql.connect("sistema.sqlite")
+    cursor = conexion.cursor()
+    producto_nombre = input("Ingrese nombre del producto: ")
+    producto_categoria = int(input("Ingrese categoria del producto: "))
+    producto_precio = float(input("Ingrese el precio del producto: "))
+    producto_proveedor_id = int(input("Ingrese el ID del proveedor: "))
+    instruccion = f"INSERT INTO productos (producto_nombre,producto_categoria,producto_precio,proveedor_id) VALUES ('{producto_nombre}','{producto_categoria}','{producto_precio}','{producto_proveedor_id}')"
+    cursor.execute(instruccion)
+    conexion.commit()
+    conexion.close()
