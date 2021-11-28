@@ -163,6 +163,9 @@ if __name__ == "__main__":
 def confirmarAlta():
     print("Los datos fueron cargados exitosamente.\n")
 
+def confirmarModificacion():
+    print("El campo fue modificado exitosamente.")
+
 def enConstruccion():
     print("Esta seccion del programa se encuentra en construccion.\n")
 
@@ -222,6 +225,7 @@ def insertarProveedor():
 def modificarCategoria():
     conexion = sql.connect("sistema.sqlite")
     cursor = conexion.cursor()
+    campoId = int(input("Ingrese ID de la categoria que desea modificar: "))
     flag = str(input("Ingrese (1) para cambiar el nombre de la categoria\nIngrese (2) para cambiar la informacion de la categoria: "))
     if flag == str(1):
         valor = input("Ingrese nuevo nombre: ")
@@ -229,11 +233,36 @@ def modificarCategoria():
     elif flag == str(2):
         valor = input("Ingrese nueva informacion: ")
         campo = "categoria_info" 
-    campoId = int(input("Ingrese el ID de la categoria a modificar: "))
-    
     instruccion = f"UPDATE categorias SET '{campo}'='{valor}' WHERE categoria_id='{campoId}'"
     cursor.execute(instruccion)
     conexion.commit()
     conexion.close()
+    confirmarModificacion()
+
+def modificarCliente():
+    conexion = sql.connect("sistema.sqlite")
+    cursor = conexion.cursor()
+    campoId = int(input("Ingrese ID del cliente que desea modificar: "))
+    flag = str(input("Ingrese (1) para cambiar nombre de cliente.\nIngrese (2) para cambiar zona de cliente.\nIngrese (3) para cambiar direccion de cliente.\nIngrese (4) para cambiar telefono de cliente.\nIngrese (5) para cambiar email de cliente: "))
+    if flag == str(1):
+        valor = input("Ingrese nuevo nombre de cliente: ")
+        campo = "cliente_nombre"
+    elif flag == str(2):
+        valor = input("Ingrese nueva zona de cliente: ")
+        campo = "cliente_zona"
+    elif flag == str(3):
+        valor = input("Ingrese nueva direccion: ")
+        campo = "cliente_direccion"
+    elif flag == str(4):
+        valor = input("Ingrese nuevo telefono: ")
+        campo = "cliente_telefono"
+    elif flag == str(5):
+        valor = input("Ingrese nuevo email : ")
+        campo = "cliente_email"
+    instruccion = f"UPDATE clientes SET '{campo}'='{valor}' WHERE cliente_id='{campoId}'"
+    cursor.execute(instruccion)
+    conexion.commit()
+    conexion.close()
+    confirmarModificacion()
 
 

@@ -32,7 +32,7 @@ def menuDevuelveCodigo():
         if seleccionSub == "uno": #Categorias
             modificarCategoria()
         elif seleccionSub == "dos": #Clientes
-            enConstruccion()
+            modificarCliente()
         elif seleccionSub == "tres": #Facturas
             enConstruccion()
         elif seleccionSub == "cuatro": #Logistica
