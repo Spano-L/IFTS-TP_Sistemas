@@ -4,7 +4,7 @@ import sys
 
 def menuPrincipal(): 
     menu()
-    seleccion=str(input("Ingrese una opcion: "))
+    seleccion=str(input("Ingrese una opción: "))
     borrarPantalla()
 #### ALTAS ####
     if seleccion==str(1):
@@ -28,14 +28,14 @@ def menuPrincipal():
 #### MODIFICACION ####
     elif seleccion==str(2):
         borrarPantalla()
-        print("SELECCIONE TIPO DE MODIFICACION")
+        print("SELECCIONE TIPO DE MODIFICACIÓN")
         seleccionSub = submenuTablas()
         if seleccionSub == "uno": #Categorias
             modificarCategoria()
         elif seleccionSub == "dos": #Clientes
             modificarCliente()
         elif seleccionSub == "tres": #Facturas
-            print("La factura no puede ser modificada. Realizar nota de credito.\n")
+            print("La factura no puede ser modificada. Debe realizar Nota de Crédito.\n")
         elif seleccionSub == "cuatro": #Logistica
             enConstruccion()
         elif seleccionSub == "cinco": #Productos
@@ -43,7 +43,7 @@ def menuPrincipal():
         elif seleccionSub == "seis": #Proveedores
             enConstruccion()
         elif seleccionSub == "siete": #Venta_items
-            print("Los items no pueden ser modificados. Orden ya facturada.\n")
+            print("Los items no pueden ser modificados. La orden ya fue facturada.\n")
 ### BAJA ####
     elif seleccion==str(3):
         print("SELECCIONE TIPO DE BAJA")
@@ -64,7 +64,7 @@ def menuPrincipal():
             print("Orden con factura emitida. No puede ser anulada.\n")
 ### BUSQUEDA ###
     elif seleccion==str(4):
-        print("SELECCIONE DONDE DESEA BUSCAR")
+        print("SELECCIONE EN CUÁL TABLA DESEA BUSCAR:")
         seleccionSub = submenuTablas()
         if seleccionSub == "uno": #Categorias
             buscarCategoria()

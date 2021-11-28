@@ -7,7 +7,7 @@ def borrarPantalla():
 def menu():
     menuPrincipal = """///  Menú principal - Seleccione una acción  ///
             \n[1] - Alta
-            \n[2] - Modificacion
+            \n[2] - ModificaciÓn
             \n[3] - Baja
             \n[4] - Busqueda
             \n[5] - Salir\n"""
@@ -55,7 +55,7 @@ def submenuTablas():
         seleccionSubmenu = "siete"
         return seleccionSubmenu
 
-# Funciones con mensajes de informacion.
+# Funciones con mensajes de información.
 
 def confirmarAlta():
     print("Los datos fueron cargados exitosamente.\n")
@@ -67,7 +67,7 @@ def confirmarBaja():
     print("La entidad fue borrada exitosamente.\n")
 
 def enConstruccion():
-    print("Esta seccion del programa se encuentra en construccion.\n")
+    print("Esta sección del programa se encuentra en construcción.\n")
 
 # Funciones de alta.
 
@@ -75,7 +75,7 @@ def insertarEntidadCategoria():
     conexion = sql.connect("sistema.sqlite")
     cursor = conexion.cursor()
     categoria_nombre = input("Ingrese nombre de categoria: ")
-    categoria_info = input("Ingrese informacion de la categoria: ")
+    categoria_info = input("Ingrese información de la categoria: ")
     instruccion = f"INSERT INTO categorias (categoria_nombre, categoria_info) VALUES ('{categoria_nombre}','{categoria_info}')"
     cursor.execute(instruccion)
     conexion.commit()
@@ -90,7 +90,7 @@ def insertarEntidadCliente():
     cliente_direccion = input("Ingrese dirección de cliente: ")
     cliente_telefono = input("Ingrese teléfono de cliente: ")
     cliente_email = input("Ingrese email de cliente:")
-    cliente_mayorista = int(input("Ingrese 1 si el cliente es mayorista. Ó ingrese 0 si es minorista."))
+    cliente_mayorista = int(input("Ingrese 1 si el cliente es mayorista. ó ingrese 0 si es minorista."))
     instruccion = f"INSERT INTO clientes (cliente_nombre, cliente_zona, cliente_direccion, cliente_telefono, cliente_email, cliente_mayorista) VALUES ('{cliente_nombre}','{cliente_zona}','{cliente_direccion}','{cliente_telefono}','{cliente_email}','{cliente_mayorista}')"
     cursor.execute(instruccion)
     conexion.commit()
@@ -101,10 +101,10 @@ def insertarProducto():
     conexion = sql.connect("sistema.sqlite")
     cursor = conexion.cursor()
     producto_nombre = input("Ingrese nombre del producto: ")
-    producto_categoria = int(input("Ingrese categoria del producto: "))
+    producto_categoria = int(input("Ingrese categoría del producto: "))
     producto_precio = float(input("Ingrese el precio del producto: "))
     producto_proveedor_id = int(input("Ingrese el ID del proveedor: "))
-    instruccion = f"INSERT INTO productos (producto_nombre,producto_categoria,producto_precio,proveedor_id) VALUES ('{producto_nombre}','{producto_categoria}','{producto_precio}','{producto_proveedor_id}')"
+    instruccion = f"INSERT INTO productos (producto_nombre, producto_categoria, producto_precio, proveedor_id) VALUES ('{producto_nombre}','{producto_categoria}','{producto_precio}','{producto_proveedor_id}')"
     cursor.execute(instruccion)
     conexion.commit()
     conexion.close()
@@ -114,7 +114,7 @@ def insertarProveedor():
     conexion = sql.connect("sistema.sqlite")
     cursor = conexion.cursor()
     proveedor_nombre = input("Ingrese nombre del proveedor: ")
-    proveedor_direccion = input("Ingrese direccion del proveedor: ")
+    proveedor_direccion = input("Ingrese dirección del proveedor: ")
     proveedor_ciudad = input("Ingrese ciudad del proveedor: ")
     proveedor_email = input("Ingrese el mail del proveedor: ")
     proveedor_telefono = input("Ingrese teléfono del proveedor: ")
@@ -124,18 +124,18 @@ def insertarProveedor():
     conexion.close()
     confirmarAlta()
 
-# Funciones de modificacion
+# Funciones de modificación
 
 def modificarCategoria():
     conexion = sql.connect("sistema.sqlite")
     cursor = conexion.cursor()
-    campoId = int(input("Ingrese ID de la categoria que desea modificar: "))
-    flag = str(input("(1) para cambiar el nombre de la categoria\n(2) para cambiar la informacion de la categoria\nIngrese su opcion: "))
+    campoId = int(input("Ingrese ID de la categoría que desea modificar: "))
+    flag = str(input("(1) para cambiar el nombre de la categoría\n(2) para cambiar la información de la categoría\nIngrese su opcion: "))
     if flag == str(1):
         valor = input("Ingrese nuevo nombre: ")
         campo = "categoria_nombre"
     elif flag == str(2):
-        valor = input("Ingrese nueva informacion: ")
+        valor = input("Ingrese nueva información: ")
         campo = "categoria_info" 
     instruccion = f"UPDATE categorias SET '{campo}'='{valor}' WHERE categoria_id='{campoId}'"
     cursor.execute(instruccion)
@@ -147,18 +147,18 @@ def modificarCliente():
     conexion = sql.connect("sistema.sqlite")
     cursor = conexion.cursor()
     campoId = int(input("Ingrese ID del cliente que desea modificar: "))
-    flag = str(input("(1) para cambiar nombre de cliente\n(2) para cambiar zona de cliente\n(3) para cambiar direccion de cliente\n(4) para cambiar telefono de cliente\n(5) para cambiar email de cliente\nIngrese su opcion: "))
+    flag = str(input("(1) para cambiar nombre de cliente\n(2) para cambiar zona del cliente\n(3) para cambiar dirección del cliente\n(4) para cambiar teléfono del cliente\n(5) para cambiar email del cliente\nIngrese su opción: "))
     if flag == str(1):
-        valor = input("Ingrese nuevo nombre de cliente: ")
+        valor = input("Ingrese nuevo nombre del cliente: ")
         campo = "cliente_nombre"
     elif flag == str(2):
-        valor = input("Ingrese nueva zona de cliente: ")
+        valor = input("Ingrese nueva zona del cliente: ")
         campo = "cliente_zona"
     elif flag == str(3):
-        valor = input("Ingrese nueva direccion: ")
+        valor = input("Ingrese nueva dirección: ")
         campo = "cliente_direccion"
     elif flag == str(4):
-        valor = input("Ingrese nuevo telefono: ")
+        valor = input("Ingrese nuevo teléfono: ")
         campo = "cliente_telefono"
     elif flag == str(5):
         valor = input("Ingrese nuevo email : ")
@@ -174,7 +174,7 @@ def modificarCliente():
 def borrarCategoria():
     conexion = sql.connect("sistema.sqlite")
     cursor = conexion.cursor()
-    valor = int(input("Ingrese ID de categoria que desea borrar: "))
+    valor = int(input("Ingrese ID de categoría que desea borrar: "))
     instruccion = f"DELETE FROM categorias WHERE categoria_id={valor}"
     cursor.execute (instruccion)
     conexion.commit()
@@ -220,13 +220,17 @@ def buscarCategoria():
     if flag == str(1):
             instruccion = f"SELECT * FROM categorias"
             for row in cursor.execute(instruccion):
-                print(row)          
+                print(row)
+            input()
+            borrarPantalla()             
     elif flag == str(2):
             campoId = input("Ingrese el ID que desea buscar: ")
             instruccion = f"SELECT categoria_nombre, categoria_info FROM categorias WHERE categoria_id='{campoId}'"
             cursor.execute(instruccion)
             datos = cursor.fetchall()
             print(datos)
+            input()
+            borrarPantalla()  
     conexion.commit()
     conexion.close()
 
@@ -246,6 +250,8 @@ def buscarCliente():
             cursor.execute(instruccion)
             datos = cursor.fetchall()
             print(datos)
+            input()
+            borrarPantalla()  
     conexion.commit()
     conexion.close()
     
@@ -256,12 +262,16 @@ def buscarProducto():
     if flag == str(1):
             instruccion = f"SELECT * FROM productos"
             for row in cursor.execute(instruccion):
-                print(row)          
+                print(row)
+            input()
+            borrarPantalla()          
     elif flag == str(2):
             campoId = input("Ingrese el ID de producto que desea buscar: ")
             instruccion = f"SELECT producto_nombre, producto_precio, categoria_nombre, proveedor_nombre FROM Productos JOIN Proveedores ON Proveedores.proveedor_id=Productos.proveedor_id JOIN Categorias ON Categorias.categoria_id=Productos.producto_categoria WHERE producto_id='{campoId}'"
             cursor.execute(instruccion)
             datos = cursor.fetchall()
             print(datos)
+            input()
+            borrarPantalla()  
     conexion.commit()
     conexion.close()
