@@ -282,3 +282,13 @@ def borrarCategoria():
     conexion.commit()
     conexion.close()
     confirmarBaja()
+
+def borrarCliente():
+    conexion = sql.connect("sistema.sqlite")
+    cursor = conexion.cursor()
+    valor = int(input("Ingrese ID de cliente que desea borrar: "))
+    instruccion = f"DELETE FROM clientes WHERE cliente_id={valor}"
+    cursor.execute (instruccion)
+    conexion.commit()
+    conexion.close()
+    confirmarBaja()

@@ -51,7 +51,7 @@ def menuDevuelveCodigo():
         if seleccionSub == "uno": #Categorias
             borrarCategoria()
         elif seleccionSub == "dos": #Clientes
-            enConstruccion()
+            borrarCliente()
         elif seleccionSub == "tres": #Facturas
             enConstruccion()
         elif seleccionSub == "cuatro": #Logistica
