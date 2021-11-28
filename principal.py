@@ -2,7 +2,7 @@ import sqlite3 as sql
 from funciones import *
 import sys
 
-def menuDevuelveCodigo(): 
+def menuPrincipal(): 
     menu()
     seleccion=str(input("Ingrese una opcion: "))
     borrarPantalla()
@@ -35,7 +35,7 @@ def menuDevuelveCodigo():
         elif seleccionSub == "dos": #Clientes
             modificarCliente()
         elif seleccionSub == "tres": #Facturas
-            enConstruccion()
+            print("La factura no puede ser modificada. Realizar nota de credito.\n")
         elif seleccionSub == "cuatro": #Logistica
             enConstruccion()
         elif seleccionSub == "cinco": #Productos
@@ -43,7 +43,7 @@ def menuDevuelveCodigo():
         elif seleccionSub == "seis": #Proveedores
             enConstruccion()
         elif seleccionSub == "siete": #Venta_items
-            enConstruccion()
+            print("Los items no pueden ser modificados. Orden ya facturada.\n")
 ### BAJA ####
     elif seleccion==str(3):
         print("SELECCIONE TIPO DE BAJA")
@@ -53,7 +53,7 @@ def menuDevuelveCodigo():
         elif seleccionSub == "dos": #Clientes
             borrarCliente()
         elif seleccionSub == "tres": #Facturas
-            enConstruccion()
+            print("Factura emitida. No puede ser anulada.\n")
         elif seleccionSub == "cuatro": #Logistica
             enConstruccion()
         elif seleccionSub == "cinco": #Productos
@@ -61,7 +61,7 @@ def menuDevuelveCodigo():
         elif seleccionSub == "seis": #Proveedores
             borrarProveedor()
         elif seleccionSub == "siete": #Venta_items
-            enConstruccion()
+            print("Orden con factura emitida. No puede ser anulada.\n")
 ### BUSQUEDA ###
     elif seleccion==str(4):
         print("SELECCIONE DONDE DESEA BUSCAR")
@@ -84,19 +84,4 @@ def menuDevuelveCodigo():
     elif seleccion==str(5):
         sys.exit()
 
-
-""" else:
-        if seleccion != 1 or seleccion != 2 or seleccion != 3 or seleccion != 4 or seleccion != 5:
-            while True:
-                seleccion=input("Opcion invalida. Ingrese nuevamente:")
-                print(menu)
-                if seleccion==str(1):
-                    enConstruccion()
-                elif seleccion==str(2):
-                    enConstruccion()
-                elif seleccion==str(3):
-                    enConstruccion()
-                elif seleccion==str(4):
-                    enConstruccion()"""
-                    
-menuDevuelveCodigo()
+menuPrincipal()
