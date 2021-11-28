@@ -1,5 +1,6 @@
 import sqlite3 as sql
 from funciones import *
+import sys
 
 def menuDevuelveCodigo(): 
     menu()
@@ -46,7 +47,21 @@ def menuDevuelveCodigo():
 ### BAJA ####
     elif seleccion==str(3):
         print("SELECCIONE TIPO DE BAJA")
-        submenuTablas()
+        seleccionSub = submenuTablas()
+        if seleccionSub == "uno": #Categorias
+            borrarCategoria()
+        elif seleccionSub == "dos": #Clientes
+            enConstruccion()
+        elif seleccionSub == "tres": #Facturas
+            enConstruccion()
+        elif seleccionSub == "cuatro": #Logistica
+            enConstruccion()
+        elif seleccionSub == "cinco": #Productos
+            enConstruccion()
+        elif seleccionSub == "seis": #Proveedores
+            enConstruccion()
+        elif seleccionSub == "siete": #Venta_items
+            enConstruccion()
 ### BUSQUEDA ###
     elif seleccion==str(4):
        enConstruccion()

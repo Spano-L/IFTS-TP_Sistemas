@@ -1,6 +1,5 @@
 import sqlite3 as sql
 import os
-import sys
 
 def borrarPantalla():
     os.system("cls")
@@ -158,16 +157,21 @@ if __name__ == "__main__":
     #borrarFila()
 
 
-# Probando funciones
+# Funciones con mensajes de informacion.
 
 def confirmarAlta():
     print("Los datos fueron cargados exitosamente.\n")
 
 def confirmarModificacion():
-    print("El campo fue modificado exitosamente.")
+    print("El campo fue modificado exitosamente.\n")
+
+def confirmarBaja():
+    print("La entidad fue borrada exitosamente.\n")
 
 def enConstruccion():
     print("Esta seccion del programa se encuentra en construccion.\n")
+
+# Funciones de alta.
 
 def insertarEntidadCategoria():
     conexion = sql.connect("sistema.sqlite")
@@ -222,6 +226,8 @@ def insertarProveedor():
     conexion.close()
     confirmarAlta()
 
+# Funciones de modificacion
+
 def modificarCategoria():
     conexion = sql.connect("sistema.sqlite")
     cursor = conexion.cursor()
@@ -265,4 +271,14 @@ def modificarCliente():
     conexion.close()
     confirmarModificacion()
 
+# Funciones de baja
 
+def borrarCategoria():
+    conexion = sql.connect("sistema.sqlite")
+    cursor = conexion.cursor()
+    valor = int(input("Ingrese ID de categoria que desea borrar: "))
+    instruccion = f"DELETE FROM categorias WHERE categoria_id={valor}"
+    cursor.execute (instruccion)
+    conexion.commit()
+    conexion.close()
+    confirmarBaja()
