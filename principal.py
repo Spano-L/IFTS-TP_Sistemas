@@ -82,6 +82,11 @@ def menuPrincipal():
             enConstruccion()
 ### SALIR ###
     elif seleccion==str(5):
+        return False
         sys.exit()
 
-menuPrincipal()
+while True:
+    menuPrincipal()
+    if menuPrincipal()==False:
+        break
+    

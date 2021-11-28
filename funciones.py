@@ -76,7 +76,7 @@ def insertarEntidadCategoria():
     cursor = conexion.cursor()
     categoria_nombre = input("Ingrese nombre de categoria: ")
     categoria_info = input("Ingrese informacion de la categoria: ")
-    instruccion = f"INSERT INTO categorias (categoria_nombre,categoria_info) VALUES ('{categoria_nombre}','{categoria_info}')"
+    instruccion = f"INSERT INTO categorias (categoria_nombre, categoria_info) VALUES ('{categoria_nombre}','{categoria_info}')"
     cursor.execute(instruccion)
     conexion.commit()
     conexion.close()
@@ -87,11 +87,11 @@ def insertarEntidadCliente():
     cursor = conexion.cursor()
     cliente_nombre = input("Ingrese nombre de cliente: ")
     cliente_zona = input("Ingrese zona de cliente: ")
-    cliente_direccion = input("Ingrese direccion de cliente: ")
-    cliente_telefono = input("Ingrese telefono de cliente: ")
+    cliente_direccion = input("Ingrese dirección de cliente: ")
+    cliente_telefono = input("Ingrese teléfono de cliente: ")
     cliente_email = input("Ingrese email de cliente:")
     cliente_mayorista = int(input("Ingrese 1 si el cliente es mayorista. Ó ingrese 0 si es minorista."))
-    instruccion = f"INSERT INTO clientes (cliente_nombre,cliente_zona,cliente_direccion,cliente_telefono,cliente_email,cliente_mayorista) VALUES ('{cliente_nombre}','{cliente_zona}','{cliente_direccion}','{cliente_telefono}','{cliente_email}','{cliente_mayorista}')"
+    instruccion = f"INSERT INTO clientes (cliente_nombre, cliente_zona, cliente_direccion, cliente_telefono, cliente_email, cliente_mayorista) VALUES ('{cliente_nombre}','{cliente_zona}','{cliente_direccion}','{cliente_telefono}','{cliente_email}','{cliente_mayorista}')"
     cursor.execute(instruccion)
     conexion.commit()
     conexion.close()
@@ -117,8 +117,8 @@ def insertarProveedor():
     proveedor_direccion = input("Ingrese direccion del proveedor: ")
     proveedor_ciudad = input("Ingrese ciudad del proveedor: ")
     proveedor_email = input("Ingrese el mail del proveedor: ")
-    proveedor_telefono = input("Ingrese telefono del proveedor: ")
-    instruccion = f"INSERT INTO proveedores (proveedor_nombre,proveedor_direccion,proveedor_ciudad,proveedor_email,proveedor_telefono) VALUES ('{proveedor_nombre}','{proveedor_direccion}','{proveedor_ciudad}','{proveedor_email}','{proveedor_telefono}')"
+    proveedor_telefono = input("Ingrese teléfono del proveedor: ")
+    instruccion = f"INSERT INTO proveedores (proveedor_nombre, proveedor_direccion, proveedor_ciudad, proveedor_email, proveedor_telefono) VALUES ('{proveedor_nombre}','{proveedor_direccion}','{proveedor_ciudad}','{proveedor_email}','{proveedor_telefono}')"
     cursor.execute(instruccion)
     conexion.commit()
     conexion.close()
@@ -206,7 +206,7 @@ def borrarProveedor():
     cursor = conexion.cursor()
     valor = int(input("Ingrese ID de proveedor que desea borrar: "))
     instruccion = f"DELETE FROM proveedores WHERE proveedor_id={valor}"
-    cursor.execute (instruccion)
+    cursor.execute(instruccion)
     conexion.commit()
     conexion.close()
     confirmarBaja()
@@ -216,14 +216,14 @@ def borrarProveedor():
 def buscarCategoria():
     conexion = sql.connect("sistema.sqlite")
     cursor = conexion.cursor()
-    flag = str(input("Ingrese (1) para buscar en toda la tabla\nIngrese (2) para buscar por ID: "))
+    flag = str(input("(1) para buscar en toda la tabla\n(2) para buscar por ID\nIngrese la opción: "))
     if flag == str(1):
             instruccion = f"SELECT * FROM categorias"
             for row in cursor.execute(instruccion):
                 print(row)          
     elif flag == str(2):
             campoId = input("Ingrese el ID que desea buscar: ")
-            instruccion = f"SELECT categoria_nombre,categoria_info from categorias WHERE categoria_id='{campoId}'"
+            instruccion = f"SELECT categoria_nombre, categoria_info FROM categorias WHERE categoria_id='{campoId}'"
             cursor.execute(instruccion)
             datos = cursor.fetchall()
             print(datos)
@@ -233,14 +233,16 @@ def buscarCategoria():
 def buscarCliente():
     conexion = sql.connect("sistema.sqlite")
     cursor = conexion.cursor()
-    flag = str(input("Ingrese (1) para buscar en toda la tabla\nIngrese (2) para buscar por ID: "))
+    flag = str(input("(1) para buscar en toda la tabla\n(2) para buscar por ID\nIngrese la opción: "))
     if flag == str(1):
             instruccion = f"SELECT * FROM clientes"
             for row in cursor.execute(instruccion):
-                print(row)          
+                print(row) 
+            input()
+            borrarPantalla()             
     elif flag == str(2):
             campoId = input("Ingrese el ID de cliente que desea buscar: ")
-            instruccion = f"SELECT cliente_nombre,cliente_zona,cliente_direccion,cliente_telefono,cliente_email from clientes WHERE cliente_id='{campoId}'"
+            instruccion = f"SELECT cliente_nombre, cliente_zona, cliente_direccion, cliente_telefono, cliente_email FROM clientes WHERE cliente_id='{campoId}'"
             cursor.execute(instruccion)
             datos = cursor.fetchall()
             print(datos)
@@ -250,14 +252,14 @@ def buscarCliente():
 def buscarProducto():
     conexion = sql.connect("sistema.sqlite")
     cursor = conexion.cursor()
-    flag = str(input("Ingrese (1) para buscar en toda la tabla\nIngrese (2) para buscar por ID: "))
+    flag = str(input("(1) para buscar en toda la tabla\n(2) para buscar por ID\nIngrese la opción: "))
     if flag == str(1):
             instruccion = f"SELECT * FROM productos"
             for row in cursor.execute(instruccion):
                 print(row)          
     elif flag == str(2):
             campoId = input("Ingrese el ID de producto que desea buscar: ")
-            instruccion = f"SELECT producto_nombre,producto_categoria,producto_precio,proveedor_id from productos WHERE producto_id='{campoId}'"
+            instruccion = f"SELECT producto_nombre, producto_precio, categoria_nombre, proveedor_nombre FROM Productos JOIN Proveedores ON Proveedores.proveedor_id=Productos.proveedor_id JOIN Categorias ON Categorias.categoria_id=Productos.producto_categoria WHERE producto_id='{campoId}'"
             cursor.execute(instruccion)
             datos = cursor.fetchall()
             print(datos)
