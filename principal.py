@@ -57,14 +57,29 @@ def menuDevuelveCodigo():
         elif seleccionSub == "cuatro": #Logistica
             enConstruccion()
         elif seleccionSub == "cinco": #Productos
-            enConstruccion()
+            borrarProducto()
         elif seleccionSub == "seis": #Proveedores
-            enConstruccion()
+            borrarProveedor()
         elif seleccionSub == "siete": #Venta_items
             enConstruccion()
 ### BUSQUEDA ###
     elif seleccion==str(4):
-       enConstruccion()
+        print("SELECCIONE DONDE DESEA BUSCAR")
+        seleccionSub = submenuTablas()
+        if seleccionSub == "uno": #Categorias
+            buscarCategoria()
+        elif seleccionSub == "dos": #Clientes
+            buscarCliente()
+        elif seleccionSub == "tres": #Facturas
+            enConstruccion()
+        elif seleccionSub == "cuatro": #Logistica
+            enConstruccion()
+        elif seleccionSub == "cinco": #Productos
+            buscarProducto()
+        elif seleccionSub == "seis": #Proveedores
+            enConstruccion()
+        elif seleccionSub == "siete": #Venta_items
+            enConstruccion()
 ### SALIR ###
     elif seleccion==str(5):
         sys.exit()

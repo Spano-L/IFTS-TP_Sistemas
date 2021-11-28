@@ -292,3 +292,77 @@ def borrarCliente():
     conexion.commit()
     conexion.close()
     confirmarBaja()
+
+def borrarProducto():
+    conexion = sql.connect("sistema.sqlite")
+    cursor = conexion.cursor()
+    valor = int(input("Ingrese ID de producto que desea borrar: "))
+    instruccion = f"DELETE FROM productos WHERE producto_id={valor}"
+    cursor.execute (instruccion)
+    conexion.commit()
+    conexion.close()
+    confirmarBaja()
+
+def borrarProveedor():
+    conexion = sql.connect("sistema.sqlite")
+    cursor = conexion.cursor()
+    valor = int(input("Ingrese ID de proveedor que desea borrar: "))
+    instruccion = f"DELETE FROM proveedores WHERE proveedor_id={valor}"
+    cursor.execute (instruccion)
+    conexion.commit()
+    conexion.close()
+    confirmarBaja()
+
+# Funciones de busqueda
+
+def buscarCategoria():
+    conexion = sql.connect("sistema.sqlite")
+    cursor = conexion.cursor()
+    flag = str(input("Ingrese (1) para buscar en toda la tabla\nIngrese (2) para buscar por ID: "))
+    if flag == str(1):
+            instruccion = f"SELECT * FROM categorias"
+            for row in cursor.execute(instruccion):
+                print(row)          
+    elif flag == str(2):
+            campoId = input("Ingrese el ID que desea buscar: ")
+            instruccion = f"SELECT categoria_nombre,categoria_info from categorias WHERE categoria_id='{campoId}'"
+            cursor.execute(instruccion)
+            datos = cursor.fetchall()
+            print(datos)
+    conexion.commit()
+    conexion.close()
+
+def buscarCliente():
+    conexion = sql.connect("sistema.sqlite")
+    cursor = conexion.cursor()
+    flag = str(input("Ingrese (1) para buscar en toda la tabla\nIngrese (2) para buscar por ID: "))
+    if flag == str(1):
+            instruccion = f"SELECT * FROM clientes"
+            for row in cursor.execute(instruccion):
+                print(row)          
+    elif flag == str(2):
+            campoId = input("Ingrese el ID de cliente que desea buscar: ")
+            instruccion = f"SELECT cliente_nombre,cliente_zona,cliente_direccion,cliente_telefono,cliente_email from clientes WHERE cliente_id='{campoId}'"
+            cursor.execute(instruccion)
+            datos = cursor.fetchall()
+            print(datos)
+    conexion.commit()
+    conexion.close()
+    
+def buscarProducto():
+    conexion = sql.connect("sistema.sqlite")
+    cursor = conexion.cursor()
+    flag = str(input("Ingrese (1) para buscar en toda la tabla\nIngrese (2) para buscar por ID: "))
+    if flag == str(1):
+            instruccion = f"SELECT * FROM productos"
+            for row in cursor.execute(instruccion):
+                print(row)          
+    elif flag == str(2):
+            campoId = input("Ingrese el ID de producto que desea buscar: ")
+            instruccion = f"SELECT producto_nombre,producto_categoria,producto_precio,proveedor_id from productos WHERE producto_id='{campoId}'"
+            cursor.execute(instruccion)
+            datos = cursor.fetchall()
+            print(datos)
+    conexion.commit()
+    conexion.close()
+    
