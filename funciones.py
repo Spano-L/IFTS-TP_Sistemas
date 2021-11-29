@@ -115,6 +115,31 @@ def modificarProducto():
     conexionSQL(instruccion)
     confirmarModificacion()
 
+def modificarProveedor():
+    campoId = int(input("Ingrese ID del proveedor que desea modificar: "))
+    opcion = int(input("(1) Nombre\n(2) Dirección\n(3) Ciudad\n(4) Provincia\n(5) País\n(6) Email\n(4) Teléfono\nIngrese la opción del campo que desea modificar: "))
+    if opcion == 1:
+        valor = input("Ingrese nuevo nombre: ")
+        campo = "proveedor_nombre"
+    elif opcion == 2:
+        valor = input("Ingrese nueva dirección: ")
+        campo = "proveedor_direccion" 
+    elif opcion == 3:
+        valor = input("Ingrese nueva ciudad: ")
+        campo = "proveedor_ciudad"
+    elif opcion == 4:
+        valor = input("Ingrese nuevo país: ")
+        campo = "proveedor_pais"
+    elif opcion == 5:
+        valor = input("Ingrese nuevo email: ")
+        campo = "proveedor_email"
+    elif opcion == 6:
+        valor = input("Ingrese nuevo teléfono: ")
+        campo = "proveedor_telefono"
+    instruccion = f"UPDATE categorias SET '{campo}'='{valor}' WHERE categoria_id='{campoId}'"
+    conexionSQL(instruccion)
+    confirmarModificacion()
+
 
 # Funciones de baja
 

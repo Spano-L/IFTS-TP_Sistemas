@@ -78,7 +78,7 @@ def menuModificaciones():
     elif seleccionSubmenu == 5: #Productos
         modificarProducto()
     elif seleccionSubmenu == 6: #Proveedores
-        enConstruccion()
+        modificarProveedor()
     elif seleccionSubmenu == 7: #Venta_items
         print("Los items no pueden ser modificados. La orden ya fue facturada.\n")
     elif seleccionSubmenu == 8: #Regresar menu Principal
