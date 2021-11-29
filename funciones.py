@@ -26,6 +26,8 @@ def confirmarBaja():
 
 def enConstruccion():
     print("Esta sección del programa se encuentra en construcción.\n")
+    input("Presione cualquier tecla para continuar")
+    borrarPantalla() 
 
 # Funciones de alta.
 
@@ -205,7 +207,7 @@ def buscarCategoria():
             instruccion = f"SELECT * FROM categorias"
             for row in cursor.execute(instruccion):
                 print(row)
-            input()
+            input("Presione cualquier tecla para continuar")
             borrarPantalla()             
     elif opcion == 2:
             campoId = input("Ingrese el ID que desea buscar: ")
@@ -213,7 +215,7 @@ def buscarCategoria():
             cursor.execute(instruccion)
             datos = cursor.fetchall()
             print(datos)
-            input()
+            input("Presione cualquier tecla para continuar")
             borrarPantalla()  
     conexion.commit()
     conexion.close()
@@ -226,7 +228,7 @@ def buscarCliente():
             instruccion = f"SELECT * FROM clientes"
             for row in cursor.execute(instruccion):
                 print(row) 
-            input()
+            input("Presione cualquier tecla para continuar")
             borrarPantalla()             
     elif opcion == 2:
             campoId = input("Ingrese el ID de cliente que desea buscar: ")
@@ -234,10 +236,31 @@ def buscarCliente():
             cursor.execute(instruccion)
             datos = cursor.fetchall()
             print(datos)
-            input()
+            input("Presione cualquier tecla para continuar")
             borrarPantalla()  
     conexion.commit()
     conexion.close()
+
+def buscarLogistica():
+    conexion = sql.connect("sistema.sqlite")
+    cursor = conexion.cursor()
+    opcion = int(input("(1) para buscar en toda la tabla\n(2) para buscar por nombre\nIngrese la opción: "))
+    if opcion == 1:
+            instruccion = f"SELECT * FROM logistica"
+            for row in cursor.execute(instruccion):
+                print(row)
+            input("Presione cualquier tecla para continuar")
+            borrarPantalla()          
+    elif opcion == 2:
+            zona = input("Ingrese el nombre de la zona que desea buscar: ")
+            instruccion = f"SELECT zona_nombre, zona_horario, zona_repartidor FROM Logistica WHERE zona_nombre='{zona}'"
+            cursor.execute(instruccion)
+            datos = cursor.fetchall()
+            print(datos)
+            input("Presione cualquier tecla para continuar")
+            borrarPantalla()  
+    conexion.commit()
+    conexion.close()    
     
 def buscarProducto():
     conexion = sql.connect("sistema.sqlite")
@@ -247,7 +270,7 @@ def buscarProducto():
             instruccion = f"SELECT * FROM productos"
             for row in cursor.execute(instruccion):
                 print(row)
-            input()
+            input("Presione cualquier tecla para continuar")
             borrarPantalla()          
     elif opcion == 2:
             campoId = input("Ingrese el ID de producto que desea buscar: ")
@@ -255,7 +278,7 @@ def buscarProducto():
             cursor.execute(instruccion)
             datos = cursor.fetchall()
             print(datos)
-            input()
+            input("Presione cualquier tecla para continuar")
             borrarPantalla()  
     conexion.commit()
     conexion.close()
