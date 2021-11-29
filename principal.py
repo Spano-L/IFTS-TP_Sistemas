@@ -119,8 +119,8 @@ def menuBusqueda():
         buscarProducto()
     elif seleccionSubmenu == 6:
         buscarProveedor()
-    elif seleccionSubmenu == 7: #Venta_items
-        enConstruccion()
+    elif seleccionSubmenu == 7: 
+        buscarItemsFactura()
     elif seleccionSubmenu == 8: 
      menuPrincipal()
 
