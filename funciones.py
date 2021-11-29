@@ -306,7 +306,7 @@ def buscarLogistica():
 def buscarProducto():
     conexion = sql.connect("sistema.sqlite")
     cursor = conexion.cursor()
-    opcion = int(input("(1) para buscar en toda la tabla\n(2) para buscar por ID\nIngrese la opción: "))
+    opcion = int(input("(1) En toda la tabla\n(2) Por ID\n(3) Filtrar por precio mínimo \n(4) Filtrar por precio máximo \nIngrese la opción a buscar: "))
     if opcion == 1:
             instruccion = f"SELECT * FROM productos"
             for row in cursor.execute(instruccion):
@@ -320,7 +320,23 @@ def buscarProducto():
             datos = cursor.fetchall()
             print(datos)
             input("Presione cualquier tecla para continuar")
-            borrarPantalla()  
+            borrarPantalla()
+    elif opcion == 3:
+            precioMinimo = input("Ingrese el precio mínimo para filtrar los productos: ")
+            instruccion = f"SELECT producto_nombre, producto_precio FROM Productos WHERE producto_precio >= '{precioMinimo}'"
+            cursor.execute(instruccion)
+            datos = cursor.fetchall()
+            print(datos)
+            input("Presione cualquier tecla para continuar")
+            borrarPantalla()
+    elif opcion == 4:
+            precioMaximo = input("Ingrese el precio máximo para filtrar los productos: ")
+            instruccion = f"SELECT producto_nombre, producto_precio FROM Productos WHERE producto_precio <= '{precioMaximo}'"
+            cursor.execute(instruccion)
+            datos = cursor.fetchall()
+            print(datos)
+            input("Presione cualquier tecla para continuar")
+            borrarPantalla() 
     conexion.commit()
     conexion.close()
 
