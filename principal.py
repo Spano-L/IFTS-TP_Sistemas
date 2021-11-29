@@ -89,27 +89,27 @@ def menuBusqueda():
 
 def menuPrincipal(): 
     menu()
-    seleccion = str(input("Ingrese una opción: "))
+    seleccion = int(input("Ingrese una opción: "))
     borrarPantalla()
 
 #### ALTAS ####
-    if seleccion==str(1):
+    if seleccion==1:
        menuAltas()
 
 #### MODIFICACION ####
-    elif seleccion==str(2):
+    elif seleccion==2:
         menuModificaciones()
 
 ### BAJA ####
-    elif seleccion==str(3):
+    elif seleccion==3:
         menuBaja()
 
 ### BUSQUEDA ###
-    elif seleccion==str(4):
+    elif seleccion==4:
         menuBusqueda()
 
 ### SALIR ###
-    elif seleccion==str(5):
+    elif seleccion==5:
         return False
         sys.exit()
 

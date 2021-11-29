@@ -31,33 +31,33 @@ def submenuTablas():
         \n[8] - Atras
         \n"""
     print(submenu)
-    seleccionSubmenu = input("Seleccione una tabla: ")
+    seleccionSubmenu = int(input("Seleccione una tabla: "))
     borrarPantalla()
-    if seleccionSubmenu ==str(1):
+    if seleccionSubmenu == 1:
         print("Seleccion 1 - Categoria\n")
         seleccionSub = "uno"
         return seleccionSub
-    elif seleccionSubmenu ==str(2):
+    elif seleccionSubmenu == 2:
         print("Seleccion 2 - Clientes\n")
         seleccionSub = "dos"
         return seleccionSub
-    elif seleccionSubmenu ==str(3):
+    elif seleccionSubmenu == 3:
         print("Seleccion 3 - Facturas\n")
         seleccionSubmenu = "tres"
         return seleccionSubmenu
-    elif seleccionSubmenu ==str(4):
+    elif seleccionSubmenu == 4:
         print("Seleccion 4 - Logistica\n")
         seleccionSubmenu = "cuatro"
         return seleccionSubmenu
-    elif seleccionSubmenu ==str(5):
+    elif seleccionSubmenu == 5:
         print("Seleccion 5 - Productos\n")
         seleccionSubmenu = "cinco"
         return seleccionSubmenu
-    elif seleccionSubmenu ==str(6):
+    elif seleccionSubmenu == 6:
         print("Seleccion 6 - Proveedores\n")
         seleccionSubmenu = "seis"
         return seleccionSubmenu
-    elif seleccionSubmenu ==str(7):
+    elif seleccionSubmenu == 7:
         print("Seleccion 7 - Venta_items\n")
         seleccionSubmenu = "siete"
         return seleccionSubmenu
@@ -66,7 +66,7 @@ def submenuTablas():
 
 def menuPrincipal(): 
     menu()
-    seleccion = str(input("Ingrese una opción: "))
+    seleccion = int(input("Ingrese una opción: "))
     borrarPantalla()
 
 def confirmarAlta():
@@ -124,11 +124,11 @@ def insertarProveedor():
 
 def modificarCategoria():
     campoId = int(input("Ingrese ID de la categoría que desea modificar: "))
-    flag = str(input("(1) para cambiar el nombre de la categoría\n(2) para cambiar la información de la categoría\nIngrese su opcion: "))
-    if flag == str(1):
+    flag = int(input("(1) para cambiar el nombre de la categoría\n(2) para cambiar la información de la categoría\nIngrese su opcion: "))
+    if flag == 1:
         valor = input("Ingrese nuevo nombre: ")
         campo = "categoria_nombre"
-    elif flag == str(2):
+    elif flag == 2:
         valor = input("Ingrese nueva información: ")
         campo = "categoria_info" 
     instruccion = f"UPDATE categorias SET '{campo}'='{valor}' WHERE categoria_id='{campoId}'"
@@ -137,20 +137,20 @@ def modificarCategoria():
 
 def modificarCliente():
     campoId = int(input("Ingrese ID del cliente que desea modificar: "))
-    flag = str(input("(1) para cambiar nombre de cliente\n(2) para cambiar zona del cliente\n(3) para cambiar dirección del cliente\n(4) para cambiar teléfono del cliente\n(5) para cambiar email del cliente\nIngrese su opción: "))
-    if flag == str(1):
+    flag = int(input("(1) para cambiar nombre de cliente\n(2) para cambiar zona del cliente\n(3) para cambiar dirección del cliente\n(4) para cambiar teléfono del cliente\n(5) para cambiar email del cliente\nIngrese su opción: "))
+    if flag == 1:
         valor = input("Ingrese nuevo nombre del cliente: ")
         campo = "cliente_nombre"
-    elif flag == str(2):
+    elif flag == 2:
         valor = input("Ingrese nueva zona del cliente: ")
         campo = "cliente_zona"
-    elif flag == str(3):
+    elif flag == 3:
         valor = input("Ingrese nueva dirección: ")
         campo = "cliente_direccion"
-    elif flag == str(4):
+    elif flag == 4:
         valor = input("Ingrese nuevo teléfono: ")
         campo = "cliente_telefono"
-    elif flag == str(5):
+    elif flag == 5:
         valor = input("Ingrese nuevo email : ")
         campo = "cliente_email"
     instruccion = f"UPDATE clientes SET '{campo}'='{valor}' WHERE cliente_id='{campoId}'"
@@ -188,14 +188,14 @@ def borrarProveedor():
 def buscarCategoria():
     conexion = sql.connect("sistema.sqlite")
     cursor = conexion.cursor()
-    flag = str(input("(1) para buscar en toda la tabla\n(2) para buscar por ID\nIngrese la opción: "))
-    if flag == str(1):
+    flag = int(input("(1) para buscar en toda la tabla\n(2) para buscar por ID\nIngrese la opción: "))
+    if flag == 1:
             instruccion = f"SELECT * FROM categorias"
             for row in cursor.execute(instruccion):
                 print(row)
             input()
             borrarPantalla()             
-    elif flag == str(2):
+    elif flag == 2:
             campoId = input("Ingrese el ID que desea buscar: ")
             instruccion = f"SELECT categoria_nombre, categoria_info FROM categorias WHERE categoria_id='{campoId}'"
             cursor.execute(instruccion)
@@ -209,14 +209,14 @@ def buscarCategoria():
 def buscarCliente():
     conexion = sql.connect("sistema.sqlite")
     cursor = conexion.cursor()
-    flag = str(input("(1) para buscar en toda la tabla\n(2) para buscar por ID\nIngrese la opción: "))
-    if flag == str(1):
+    flag = int(input("(1) para buscar en toda la tabla\n(2) para buscar por ID\nIngrese la opción: "))
+    if flag == 1:
             instruccion = f"SELECT * FROM clientes"
             for row in cursor.execute(instruccion):
                 print(row) 
             input()
             borrarPantalla()             
-    elif flag == str(2):
+    elif flag == 2:
             campoId = input("Ingrese el ID de cliente que desea buscar: ")
             instruccion = f"SELECT cliente_nombre, cliente_zona, cliente_direccion, cliente_telefono, cliente_email FROM clientes WHERE cliente_id='{campoId}'"
             cursor.execute(instruccion)
@@ -230,14 +230,14 @@ def buscarCliente():
 def buscarProducto():
     conexion = sql.connect("sistema.sqlite")
     cursor = conexion.cursor()
-    flag = str(input("(1) para buscar en toda la tabla\n(2) para buscar por ID\nIngrese la opción: "))
-    if flag == str(1):
+    flag = int(input("(1) para buscar en toda la tabla\n(2) para buscar por ID\nIngrese la opción: "))
+    if flag == 1:
             instruccion = f"SELECT * FROM productos"
             for row in cursor.execute(instruccion):
                 print(row)
             input()
             borrarPantalla()          
-    elif flag == str(2):
+    elif flag == 2:
             campoId = input("Ingrese el ID de producto que desea buscar: ")
             instruccion = f"SELECT producto_nombre, producto_precio, categoria_nombre, proveedor_nombre FROM Productos JOIN Proveedores ON Proveedores.proveedor_id=Productos.proveedor_id JOIN Categorias ON Categorias.categoria_id=Productos.producto_categoria WHERE producto_id='{campoId}'"
             cursor.execute(instruccion)
