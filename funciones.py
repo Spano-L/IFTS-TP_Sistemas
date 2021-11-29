@@ -527,3 +527,5 @@ def buscarItemsFactura():
             borrarPantalla()  
     conexion.commit()
     conexion.close()
+
+print ("\nEjecute el archivo principal.py\n")
