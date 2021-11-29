@@ -19,7 +19,6 @@ def submenuTablas():
     borrarPantalla()
     if seleccionSubmenu == 1:
         print("Seleccion 1 - Categoria\n")
-        #seleccionSubmenu = 1
         return seleccionSubmenu
     elif seleccionSubmenu == 2:
         print("Seleccion 2 - Clientes\n")
@@ -77,7 +76,7 @@ def menuModificaciones():
     elif seleccionSubmenu == 4: #Logistica
         enConstruccion()
     elif seleccionSubmenu == 5: #Productos
-        enConstruccion()
+        modificarProducto()
     elif seleccionSubmenu == 6: #Proveedores
         enConstruccion()
     elif seleccionSubmenu == 7: #Venta_items
@@ -130,11 +129,11 @@ def menuBusqueda():
 def menuPrincipal(): 
     menu = """
     ///  Menú principal - Seleccione una acción  ///
-            \n[1] - Alta
-            \n[2] - Modificación
-            \n[3] - Baja
-            \n[4] - Busqueda
-            \n[5] - Salir\n"""
+            [1] - Alta
+            [2] - Modificación
+            [3] - Baja
+            [4] - Busqueda
+            [5] - Salir\n"""
     print(menu)
     seleccion = int(input("Ingrese una opción: "))
     borrarPantalla()

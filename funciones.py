@@ -96,6 +96,26 @@ def modificarCliente():
     conexionSQL(instruccion)
     confirmarModificacion()
 
+def modificarProducto():
+    campoId = int(input("Ingrese ID del producto que desea modificar: "))
+    opcion = int(input("(1) para cambiar el nombre\n(2) para cambiar la categoría\n(3) para cambiar el precio\n(4) para cambiar el id del proveedor\nIngrese su opcion: "))
+    if opcion == 1:
+        valor = input("Ingrese nuevo nombre: ")
+        campo = "producto_nombre"
+    elif opcion == 2:
+        valor = input("Ingrese nueva categoría: ")
+        campo = "producto_categoria" 
+    elif opcion == 3:
+        valor = input("Ingrese nuevo precio: ")
+        campo = "producto_precio"
+    elif opcion == 4:
+        valor = input("Ingrese id del nuevo proveedor: ")
+        campo = "proveedor_id"  
+    instruccion = f"UPDATE categorias SET '{campo}'='{valor}' WHERE categoria_id='{campoId}'"
+    conexionSQL(instruccion)
+    confirmarModificacion()
+
+
 # Funciones de baja
 
 def borrarCategoria():
