@@ -531,3 +531,4 @@ def buscarItemsFactura():
 if __name__ == "__main__":
 
     print ("\nEjecute el archivo principal.py\n")
+    input()
