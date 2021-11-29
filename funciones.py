@@ -318,7 +318,7 @@ def modificarProducto():
     elif opcion == 4:
         valor = input("Ingrese id del nuevo proveedor: ")
         campo = "proveedor_id"  
-    instruccion = f"UPDATE categorias SET '{campo}'='{valor}' WHERE categoria_id='{campoId}'"
+    instruccion = f"UPDATE Productos SET '{campo}'='{valor}' WHERE producto_id='{campoId}'"
     conexionSQL(instruccion)
     confirmarModificacion()
 
