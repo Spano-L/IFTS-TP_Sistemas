@@ -5,67 +5,61 @@ import sys
 #SUBMENÚ
 def submenuTablas():
     submenu = """
-        \n[1] - Categoria
-        \n[2] - Clientes
-        \n[3] - Facturas
-        \n[4] - Logistica
-        \n[5] - Productos
-        \n[6] - Proveedores
-        \n[7] - Venta_items
-        \n[8] - Atras
-        \n"""
+        [1] - Categoria
+        [2] - Clientes
+        [3] - Facturas
+        [4] - Logistica
+        [5] - Productos
+        [6] - Proveedores
+        [7] - Venta_items
+        [8] - Atras
+        """
     print(submenu)
     seleccionSubmenu = int(input("Seleccione una tabla: "))
     borrarPantalla()
     if seleccionSubmenu == 1:
         print("Seleccion 1 - Categoria\n")
-        seleccionSub = "uno"
-        return seleccionSub
+        #seleccionSubmenu = 1
+        return seleccionSubmenu
     elif seleccionSubmenu == 2:
         print("Seleccion 2 - Clientes\n")
-        seleccionSub = "dos"
-        return seleccionSub
+        return seleccionSubmenu
     elif seleccionSubmenu == 3:
         print("Seleccion 3 - Facturas\n")
-        seleccionSubmenu = "tres"
         return seleccionSubmenu
     elif seleccionSubmenu == 4:
         print("Seleccion 4 - Logistica\n")
-        seleccionSubmenu = "cuatro"
         return seleccionSubmenu
     elif seleccionSubmenu == 5:
         print("Seleccion 5 - Productos\n")
-        seleccionSubmenu = "cinco"
         return seleccionSubmenu
     elif seleccionSubmenu == 6:
         print("Seleccion 6 - Proveedores\n")
-        seleccionSubmenu = "seis"
         return seleccionSubmenu
     elif seleccionSubmenu == 7:
         print("Seleccion 7 - Venta_items\n")
-        seleccionSubmenu = "siete"
         return seleccionSubmenu
    
 ### MENU DE ALTAS ###
 def menuAltas():
     borrarPantalla()
     print("SELECCIONE TIPO DE ALTA")
-    seleccionSub = submenuTablas()
-    if seleccionSub == "uno":
+    seleccionSubmenu = submenuTablas()
+    if seleccionSubmenu == 1:
         insertarEntidadCategoria()
-    elif seleccionSub == "dos":
+    elif seleccionSubmenu == 2:
         insertarEntidadCliente()
-    elif seleccionSub == "tres":
+    elif seleccionSubmenu == 3:
         enConstruccion()
-    elif seleccionSub == "cuatro":
+    elif seleccionSubmenu == 4:
         enConstruccion()
-    elif seleccionSub == "cinco":
+    elif seleccionSubmenu == 5:
         insertarProducto()
-    elif seleccionSub == "seis":
+    elif seleccionSubmenu == 6:
         insertarProveedor()
-    elif seleccionSub == "siete":
+    elif seleccionSubmenu == 7:
         enConstruccion()
-    elif seleccionSub == "ocho":
+    elif seleccionSubmenu == 8:
         menuPrincipal()
 
 ### MENU MODIFICACIONES ###
@@ -73,70 +67,71 @@ def menuAltas():
 def menuModificaciones():
     borrarPantalla()
     print("SELECCIONE TIPO DE MODIFICACIÓN")
-    seleccionSub = submenuTablas()
-    if seleccionSub == "uno": #Categorias
+    seleccionSubmenu = submenuTablas()
+    if seleccionSubmenu == 1: #Categorias
         modificarCategoria()
-    elif seleccionSub == "dos": #Clientes
+    elif seleccionSubmenu == 2: #Clientes
         modificarCliente()
-    elif seleccionSub == "tres": #Facturas
+    elif seleccionSubmenu == 3: #Facturas
         print("La factura no puede ser modificada. Debe realizar Nota de Crédito.\n")
-    elif seleccionSub == "cuatro": #Logistica
+    elif seleccionSubmenu == 4: #Logistica
         enConstruccion()
-    elif seleccionSub == "cinco": #Productos
+    elif seleccionSubmenu == 5: #Productos
         enConstruccion()
-    elif seleccionSub == "seis": #Proveedores
+    elif seleccionSubmenu == 6: #Proveedores
         enConstruccion()
-    elif seleccionSub == "siete": #Venta_items
+    elif seleccionSubmenu == 7: #Venta_items
         print("Los items no pueden ser modificados. La orden ya fue facturada.\n")
-    elif seleccionSub == "ocho": #Regresar menu Principal
+    elif seleccionSubmenu == 8: #Regresar menu Principal
         menuPrincipal()
 
 def menuBaja():
     print("SELECCIONE TIPO DE BAJA")
-    seleccionSub = submenuTablas()
-    if seleccionSub == "uno": #Categorias
+    seleccionSubmenu = submenuTablas()
+    if seleccionSubmenu == 1: #Categorias
         borrarCategoria()
-    elif seleccionSub == "dos": #Clientes
+    elif seleccionSubmenu == 2: #Clientes
         borrarCliente()
-    elif seleccionSub == "tres": #Facturas
+    elif seleccionSubmenu == 3: #Facturas
         print("Factura emitida. No puede ser anulada.\n")
-    elif seleccionSub == "cuatro": #Logistica
+    elif seleccionSubmenu == 4: #Logistica
         enConstruccion()
-    elif seleccionSub == "cinco": #Productos
+    elif seleccionSubmenu == 5: #Productos
         borrarProducto()
-    elif seleccionSub == "seis": #Proveedores
+    elif seleccionSubmenu == 6: #Proveedores
         borrarProveedor()
-    elif seleccionSub == "siete": #Venta_items
+    elif seleccionSubmenu == 7: #Venta_items
         print("Orden con factura emitida. No puede ser anulada.\n")
-    elif seleccionSub == "ocho": #Regresar menu Principal
+    elif seleccionSubmenu == 8: #Regresar menu Principal
         menuPrincipal()
 
 def menuBusqueda():
     print("SELECCIONE EN CUÁL TABLA DESEA BUSCAR:")
-    seleccionSub = submenuTablas()
-    if seleccionSub == "uno": #Categorias
+    seleccionSubmenu = submenuTablas()
+    if seleccionSubmenu == 1: #Categorias
         buscarCategoria()
-    elif seleccionSub == "dos": #Clientes
+    elif seleccionSubmenu == 2: #Clientes
         buscarCliente()
-    elif seleccionSub == "tres": #Facturas
+    elif seleccionSubmenu == 3: #Facturas
         enConstruccion()
-    elif seleccionSub == "cuatro": #Logistica
+    elif seleccionSubmenu == 4: #Logistica
         enConstruccion()
-    elif seleccionSub == "cinco": #Productos
+    elif seleccionSubmenu == 5: #Productos
         buscarProducto()
-    elif seleccionSub == "seis": #Proveedores
+    elif seleccionSubmenu == 6: #Proveedores
         enConstruccion()
-    elif seleccionSub == "siete": #Venta_items
+    elif seleccionSubmenu == 7: #Venta_items
         enConstruccion()
-    elif seleccionSub == "ocho": #Regresar menu Principal
+    elif seleccionSubmenu == 8: #Regresar menu Principal
      menuPrincipal()
 
 
 ###MENÚ PRINCIPAL
 def menuPrincipal(): 
-    menu = """///  Menú principal - Seleccione una acción  ///
+    menu = """
+    ///  Menú principal - Seleccione una acción  ///
             \n[1] - Alta
-            \n[2] - ModificaciÓn
+            \n[2] - Modificación
             \n[3] - Baja
             \n[4] - Busqueda
             \n[5] - Salir\n"""
