@@ -1,6 +1,50 @@
 import sqlite3 as sql
 from funciones import *
 import sys
+
+#SUBMENÚ
+def submenuTablas():
+    submenu = """
+        \n[1] - Categoria
+        \n[2] - Clientes
+        \n[3] - Facturas
+        \n[4] - Logistica
+        \n[5] - Productos
+        \n[6] - Proveedores
+        \n[7] - Venta_items
+        \n[8] - Atras
+        \n"""
+    print(submenu)
+    seleccionSubmenu = int(input("Seleccione una tabla: "))
+    borrarPantalla()
+    if seleccionSubmenu == 1:
+        print("Seleccion 1 - Categoria\n")
+        seleccionSub = "uno"
+        return seleccionSub
+    elif seleccionSubmenu == 2:
+        print("Seleccion 2 - Clientes\n")
+        seleccionSub = "dos"
+        return seleccionSub
+    elif seleccionSubmenu == 3:
+        print("Seleccion 3 - Facturas\n")
+        seleccionSubmenu = "tres"
+        return seleccionSubmenu
+    elif seleccionSubmenu == 4:
+        print("Seleccion 4 - Logistica\n")
+        seleccionSubmenu = "cuatro"
+        return seleccionSubmenu
+    elif seleccionSubmenu == 5:
+        print("Seleccion 5 - Productos\n")
+        seleccionSubmenu = "cinco"
+        return seleccionSubmenu
+    elif seleccionSubmenu == 6:
+        print("Seleccion 6 - Proveedores\n")
+        seleccionSubmenu = "seis"
+        return seleccionSubmenu
+    elif seleccionSubmenu == 7:
+        print("Seleccion 7 - Venta_items\n")
+        seleccionSubmenu = "siete"
+        return seleccionSubmenu
    
 ### MENU DE ALTAS ###
 def menuAltas():
@@ -126,46 +170,3 @@ while True:
     if menuPrincipal()==False:
         break
    
-#SUBMENÚ
-def submenuTablas():
-    submenu = """
-        \n[1] - Categoria
-        \n[2] - Clientes
-        \n[3] - Facturas
-        \n[4] - Logistica
-        \n[5] - Productos
-        \n[6] - Proveedores
-        \n[7] - Venta_items
-        \n[8] - Atras
-        \n"""
-    print(submenu)
-    seleccionSubmenu = int(input("Seleccione una tabla: "))
-    borrarPantalla()
-    if seleccionSubmenu == 1:
-        print("Seleccion 1 - Categoria\n")
-        seleccionSub = "uno"
-        return seleccionSub
-    elif seleccionSubmenu == 2:
-        print("Seleccion 2 - Clientes\n")
-        seleccionSub = "dos"
-        return seleccionSub
-    elif seleccionSubmenu == 3:
-        print("Seleccion 3 - Facturas\n")
-        seleccionSubmenu = "tres"
-        return seleccionSubmenu
-    elif seleccionSubmenu == 4:
-        print("Seleccion 4 - Logistica\n")
-        seleccionSubmenu = "cuatro"
-        return seleccionSubmenu
-    elif seleccionSubmenu == 5:
-        print("Seleccion 5 - Productos\n")
-        seleccionSubmenu = "cinco"
-        return seleccionSubmenu
-    elif seleccionSubmenu == 6:
-        print("Seleccion 6 - Proveedores\n")
-        seleccionSubmenu = "seis"
-        return seleccionSubmenu
-    elif seleccionSubmenu == 7:
-        print("Seleccion 7 - Venta_items\n")
-        seleccionSubmenu = "siete"
-        return seleccionSubmenu
