@@ -343,7 +343,7 @@ def modificarProveedor():
     elif opcion == 6:
         valor = input("Ingrese nuevo teléfono: ")
         campo = "proveedor_telefono"
-    instruccion = f"UPDATE categorias SET '{campo}'='{valor}' WHERE categoria_id='{campoId}'"
+    instruccion = f"UPDATE proveedores SET '{campo}'='{valor}' WHERE proveedor_id='{campoId}'"
     conexionSQL(instruccion)
     confirmarModificacion()
 
