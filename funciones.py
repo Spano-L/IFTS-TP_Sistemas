@@ -535,7 +535,7 @@ def buscarItemsFactura():
             borrarPantalla()             
     elif opcion == 2:
             campo = input("Ingrese el número de factura que desea buscar: ")
-            instruccion = f"SELECT factura_numero, factura_fecha, cliente_nombre FROM facturas JOIN clientes ON clientes.cliente_id=facturas.cliente_id WHERE factura_numero='{campo}'"
+            instruccion = f"SELECT factura_numero, factura_fecha, cliente_nombre FROM venta_items JOIN clientes ON clientes.cliente_id=facturas.cliente_id WHERE factura_numero='{campo}'"
             cursor.execute(instruccion)
             datos = cursor.fetchall()
             print(datos)
