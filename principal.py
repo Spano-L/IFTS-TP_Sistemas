@@ -45,17 +45,17 @@ def menuAltas():
     print("SELECCIONE TIPO DE ALTA")
     seleccionSubmenu = submenuTablas()
     if seleccionSubmenu == 1:
-        insertarEntidadCategoria()
+        altaCategoria()
     elif seleccionSubmenu == 2:
-        insertarEntidadCliente()
+        altaCliente()
     elif seleccionSubmenu == 3:
         enConstruccion()
     elif seleccionSubmenu == 4:
-        enConstruccion()
+        altaLogistica()
     elif seleccionSubmenu == 5:
-        insertarProducto()
+        altaProducto()
     elif seleccionSubmenu == 6:
-        insertarProveedor()
+        altaProveedor()
     elif seleccionSubmenu == 7:
         enConstruccion()
     elif seleccionSubmenu == 8:

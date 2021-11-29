@@ -22,14 +22,14 @@ def enConstruccion():
 
 # Funciones de alta.
 
-def insertarEntidadCategoria():
+def altaCategoria():
     categoria_nombre = input("Ingrese nombre de categoria: ")
     categoria_info = input("Ingrese información de la categoria: ")
     instruccion = f"INSERT INTO categorias (categoria_nombre, categoria_info) VALUES ('{categoria_nombre}','{categoria_info}')"
     conexionSQL(instruccion)
     confirmarAlta()
 
-def insertarEntidadCliente():
+def altaCliente():
     cliente_nombre = input("Ingrese nombre de cliente: ")
     cliente_zona = input("Ingrese zona de cliente: ")
     cliente_direccion = input("Ingrese dirección de cliente: ")
@@ -40,7 +40,15 @@ def insertarEntidadCliente():
     conexionSQL(instruccion)
     confirmarAlta()
 
-def insertarProducto():
+def altaLogistica():
+    nombre = input("Ingrese nombre de la zona: ")
+    horario = input("Ingrese horario de la zona: ")
+    repartidor = input("Ingrese repartidor de la zona: ")
+    instruccion = f"INSERT INTO logistica (zona_nombre, zona_horario, zona_repartidor) VALUES ('{nombre}','{horario}','{repartidor}')"
+    conexionSQL(instruccion)
+    confirmarAlta()
+
+def altaProducto():
     producto_nombre = input("Ingrese nombre del producto: ")
     producto_categoria = int(input("Ingrese categoría del producto: "))
     producto_precio = float(input("Ingrese el precio del producto: "))
@@ -49,7 +57,7 @@ def insertarProducto():
     conexionSQL(instruccion)
     confirmarAlta()
 
-def insertarProveedor():
+def altaProveedor():
     proveedor_nombre = input("Ingrese nombre del proveedor: ")
     proveedor_direccion = input("Ingrese dirección del proveedor: ")
     proveedor_ciudad = input("Ingrese ciudad del proveedor: ")
