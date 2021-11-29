@@ -224,6 +224,27 @@ def buscarCategoria():
     conexion.commit()
     conexion.close()
 
+def buscarFactura():
+    conexion = sql.connect("sistema.sqlite")
+    cursor = conexion.cursor()
+    opcion = int(input("(1) para buscar en toda la tabla\n(2) para buscar por ID\nIngrese la opción: "))
+    if opcion == 1:
+            instruccion = f"SELECT factura_numero, factura_fecha, cliente_nombre FROM facturas JOIN clientes ON clientes.cliente_id=facturas.cliente_id"
+            for row in cursor.execute(instruccion):
+                print(row) 
+            input("Presione cualquier tecla para continuar")
+            borrarPantalla()             
+    elif opcion == 2:
+            campo = input("Ingrese el número de factura que desea buscar: ")
+            instruccion = f"SELECT factura_numero, factura_fecha, cliente_nombre FROM facturas JOIN clientes ON clientes.cliente_id=facturas.cliente_id WHERE factura_numero='{campo}'"
+            cursor.execute(instruccion)
+            datos = cursor.fetchall()
+            print(datos)
+            input("Presione cualquier tecla para continuar")
+            borrarPantalla()  
+    conexion.commit()
+    conexion.close()
+
 def buscarCliente():
     conexion = sql.connect("sistema.sqlite")
     cursor = conexion.cursor()
