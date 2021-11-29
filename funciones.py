@@ -1,10 +1,17 @@
 import sqlite3 as sql
 import os
-from conexionSQL import conexionSQL
+
 
 
 def borrarPantalla():
     os.system("cls")
+
+def conexionSQL(instruccion):
+    conexion = sql.connect("sistema.sqlite")
+    cursor = conexion.cursor()
+    cursor.execute(instruccion)
+    conexion.commit()
+    conexion.close()
   
 # Funciones con mensajes de información.
 
@@ -101,6 +108,19 @@ def modificarCliente():
         valor = input("Ingrese nuevo email : ")
         campo = "cliente_email"
     instruccion = f"UPDATE clientes SET '{campo}'='{valor}' WHERE cliente_id='{campoId}'"
+    conexionSQL(instruccion)
+    confirmarModificacion()
+
+def modificarLogistica():
+    campoNombre = input("Ingrese el nombre de la zona que desea modificar: ")
+    opcion = int(input("(1) Horario\n(2) Repartidor\nIngrese la opción del campo que desea modificar: "))
+    if opcion == 1:
+        valor = input("Ingrese nuevo horario: ")
+        campo = "zona_horario"
+    elif opcion == 2:
+        valor = input("Ingrese nuevo repartidor: ")
+        campo = "zona_repartidor" 
+    instruccion = f"UPDATE Logistica SET '{campo}'='{valor}' WHERE zona_nombre='{campoNombre}'"
     conexionSQL(instruccion)
     confirmarModificacion()
 

@@ -73,8 +73,8 @@ def menuModificaciones():
         modificarCliente()
     elif seleccionSubmenu == 3:
         print("La factura no puede ser modificada. Debe realizar Nota de Crédito.\n")
-    elif seleccionSubmenu == 4: #Logistica
-        enConstruccion()
+    elif seleccionSubmenu == 4:
+        modificarLogistica()
     elif seleccionSubmenu == 5:
         modificarProducto()
     elif seleccionSubmenu == 6:
