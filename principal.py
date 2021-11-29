@@ -122,7 +122,7 @@ def menuBusqueda():
     elif seleccionSubmenu == 7: 
         buscarItemsFactura()
     elif seleccionSubmenu == 8: 
-     menuPrincipal()
+        menuPrincipal()
 
 
 ###MENÚ PRINCIPAL
@@ -160,7 +160,5 @@ def menuPrincipal():
         sys.exit()
 
 while True:
-    menuPrincipal()
     if menuPrincipal()==False:
         break
-   
