@@ -1,8 +1,6 @@
 import sqlite3 as sql
 import os
 
-
-
 def borrarPantalla():
     os.system("cls")
 
@@ -275,6 +273,27 @@ def buscarProducto():
     elif opcion == 2:
             campoId = input("Ingrese el ID de producto que desea buscar: ")
             instruccion = f"SELECT producto_nombre, producto_precio, categoria_nombre, proveedor_nombre FROM Productos JOIN Proveedores ON Proveedores.proveedor_id=Productos.proveedor_id JOIN Categorias ON Categorias.categoria_id=Productos.producto_categoria WHERE producto_id='{campoId}'"
+            cursor.execute(instruccion)
+            datos = cursor.fetchall()
+            print(datos)
+            input("Presione cualquier tecla para continuar")
+            borrarPantalla()  
+    conexion.commit()
+    conexion.close()
+
+def buscarProveedor():
+    conexion = sql.connect("sistema.sqlite")
+    cursor = conexion.cursor()
+    opcion = int(input("(1) para buscar en toda la tabla\n(2) para buscar por ID\nIngrese la opción: "))
+    if opcion == 1:
+            instruccion = f"SELECT * FROM proveedores"
+            for row in cursor.execute(instruccion):
+                print(row)
+            input("Presione cualquier tecla para continuar")
+            borrarPantalla()          
+    elif opcion == 2:
+            campoId = input("Ingrese el ID de producto que desea buscar: ")
+            instruccion = f"SELECT proveedor_nombre, proveedor_direccion, proveedor_ciudad, proveedor_provincia, proveedor_pais, proveedor_email, proveedor_telefono FROM Proveedores WHERE proveedor_id='{campoId}'"
             cursor.execute(instruccion)
             datos = cursor.fetchall()
             print(datos)

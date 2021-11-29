@@ -113,12 +113,12 @@ def menuBusqueda():
         buscarCliente()
     elif seleccionSubmenu == 3: #Facturas
         enConstruccion()
-    elif seleccionSubmenu == 4: #Logistica
+    elif seleccionSubmenu == 4:
         buscarLogistica()
     elif seleccionSubmenu == 5:
         buscarProducto()
-    elif seleccionSubmenu == 6: #Proveedores
-        enConstruccion()
+    elif seleccionSubmenu == 6:
+        buscarProveedor()
     elif seleccionSubmenu == 7: #Venta_items
         enConstruccion()
     elif seleccionSubmenu == 8: 
