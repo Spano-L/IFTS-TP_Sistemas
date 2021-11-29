@@ -93,8 +93,8 @@ def menuBaja():
         borrarCliente()
     elif seleccionSubmenu == 3: 
         print("Factura emitida. No puede ser anulada.\n")
-    elif seleccionSubmenu == 4: #Logistica
-        enConstruccion()
+    elif seleccionSubmenu == 4:
+        borrarLogistica()
     elif seleccionSubmenu == 5: 
         borrarProducto()
     elif seleccionSubmenu == 6: 

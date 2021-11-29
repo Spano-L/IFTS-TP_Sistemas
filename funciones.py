@@ -183,6 +183,12 @@ def borrarCliente():
     conexionSQL(instruccion)
     confirmarBaja()
 
+def borrarLogistica():
+    valor = input("Ingrese nombre de zona que desea borrar: ")
+    instruccion = f"DELETE FROM logistica WHERE zona_nombre='{valor}'"
+    conexionSQL(instruccion)
+    confirmarBaja()
+
 def borrarProducto():
     valor = int(input("Ingrese ID de producto que desea borrar: "))
     instruccion = f"DELETE FROM productos WHERE producto_id={valor}"
