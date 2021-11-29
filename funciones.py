@@ -47,6 +47,13 @@ def altaCliente():
     conexionSQL(instruccion)
     confirmarAlta()
 
+def altaFactura():
+    fecha = input("Ingrese fecha de factura: ")
+    id_cliente = input("Ingrese id del cliente: ")
+    instruccion = f"INSERT INTO facturas (factura_fecha, cliente_id) VALUES ('{fecha}','{id_cliente}')"
+    conexionSQL(instruccion)
+    confirmarAlta()
+
 def altaLogistica():
     nombre = input("Ingrese nombre de la zona: ")
     horario = input("Ingrese horario de la zona: ")
@@ -71,6 +78,15 @@ def altaProveedor():
     proveedor_email = input("Ingrese el mail del proveedor: ")
     proveedor_telefono = input("Ingrese teléfono del proveedor: ")
     instruccion = f"INSERT INTO proveedores (proveedor_nombre, proveedor_direccion, proveedor_ciudad, proveedor_email, proveedor_telefono) VALUES ('{proveedor_nombre}','{proveedor_direccion}','{proveedor_ciudad}','{proveedor_email}','{proveedor_telefono}')"
+    conexionSQL(instruccion)
+    confirmarAlta()
+
+def altaItemsFactura():
+    factura = input("Ingrese número de factura: ")
+    producto = input("Ingrese id del producto")
+    cantidad = input("Ingrese cantidad del producto: ")
+    precio = 0 #implementar SUM (cantidad*item_precio) As Precio
+    instruccion = f"INSERT INTO venta_items (factura_numero, cantidad, productos_id, item_precio) VALUES ('{factura}','{cantidad}','{producto}', '{precio}')"
     conexionSQL(instruccion)
     confirmarAlta()
 

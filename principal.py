@@ -49,7 +49,7 @@ def menuAltas():
     elif seleccionSubmenu == 2:
         altaCliente()
     elif seleccionSubmenu == 3:
-        enConstruccion() #Facturas
+        altaFactura()
     elif seleccionSubmenu == 4:
         altaLogistica()
     elif seleccionSubmenu == 5:
