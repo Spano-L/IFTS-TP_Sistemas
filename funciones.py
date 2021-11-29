@@ -528,4 +528,6 @@ def buscarItemsFactura():
     conexion.commit()
     conexion.close()
 
-print ("\nEjecute el archivo principal.py\n")
+if __name__ == "__main__":
+
+    print ("\nEjecute el archivo principal.py\n")
