@@ -1,4 +1,3 @@
-import sqlite3 as sql
 from funciones import *
 
 while True:
